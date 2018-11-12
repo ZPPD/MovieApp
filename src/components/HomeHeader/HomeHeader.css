@@ -45,3 +45,25 @@
   background-color: #ed6f5b;
   cursor: pointer;
 }
+
+/* tablets and medium desktop desktop */
+@media (max-width: 1113px) {
+  .navbar {
+    display: flex;
+    padding: 1rem;
+  }
+
+  #searchForm {
+    margin: 0 auto;
+  }
+}
+
+/* tablets */
+@media (max-width: 750px) {
+  .search-input {
+    width: 250px;
+  }
+  .brand {
+    padding: 0.3rem 1rem;
+  }
+}

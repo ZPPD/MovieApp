@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HomeHeader from "./components/HomeHeader/HomeHeader";
+import HomeTable from "./components/HomeTable/HomeTable";
 
 import "./App.css";
 
@@ -8,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <HomeHeader />
+        <HomeTable />
       </div>
     );
   }

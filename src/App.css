@@ -4,3 +4,31 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* main */
+.main {
+  margin: 150px 300px;
+}
+
+/* media queries */
+@media (max-width: 1570px) {
+  .main {
+    margin: 150px;
+  }
+}
+@media (max-width: 1400px) {
+  .main {
+    margin: 150px 50px;
+    max-width: 100%;
+  }
+}
+@media (max-width: 980px) {
+  .main {
+    margin: 150px 20px;
+  }
+}
+@media (max-width: 750px) {
+  main {
+    margin: 100px 20px;
+  }
+}

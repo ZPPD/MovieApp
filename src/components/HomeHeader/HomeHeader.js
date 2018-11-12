@@ -6,7 +6,7 @@ class HomeHeader extends React.Component {
     return (
       <header>
         <nav className="navbar">
-          <a href="#" className="brand">
+          <a href="/" className="brand">
             <i className="fas fa-film fa-3x" />
           </a>
           <form id="searchForm">
@@ -15,7 +15,7 @@ class HomeHeader extends React.Component {
             </label>
             <input
               type="search"
-              class="search-input"
+              className="search-input"
               id="searchInput"
               placeholder="Search Movies and TV..."
               aria-label="Search the site for more movies"
