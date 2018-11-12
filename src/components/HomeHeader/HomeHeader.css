@@ -1,0 +1,47 @@
+.navbar {
+  background-color: #232323;
+  margin: 0;
+  padding: 1.9rem;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.brand,
+.discover {
+  padding: 0 1rem;
+  display: block;
+  text-decoration: none;
+  color: #ed6f5b;
+}
+
+#searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-input {
+  padding: 0.8rem;
+  margin-right: 0;
+  width: 300px;
+  border: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.search-button {
+  padding: 0.8rem;
+  margin-left: -6px;
+  border: none;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.search-button:hover {
+  background-color: #ed6f5b;
+  cursor: pointer;
+}
