@@ -13,7 +13,7 @@ class HomeTable extends Component {
 
   render() {
     return (
-      <section className="table main">
+      <section className="table">
         <div className="grid-table-top">
           <h2>Movies</h2>
           <h2>TV</h2>

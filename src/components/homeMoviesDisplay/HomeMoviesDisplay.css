@@ -1,0 +1,48 @@
+/* now playing */
+
+.playing-img {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+}
+.playing-grid {
+  opacity: 0.8;
+  margin: 2rem 0;
+  cursor: pointer;
+}
+
+.nowPlaying {
+  color: #e5e5e5;
+  margin: 1.5rem 0;
+}
+.playingMovie-name {
+  color: #b7b7b7;
+  font-size: 1.2rem;
+}
+
+.playing-grid:hover {
+  opacity: 1;
+}
+.playing {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* media queries */
+@media (max-width: 1400px) {
+  .playing {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  .playing {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .playing {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

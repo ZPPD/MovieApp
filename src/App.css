@@ -9,6 +9,9 @@ body {
 .main {
   margin: 150px 300px;
 }
+a {
+  text-decoration: none;
+}
 
 /* media queries */
 @media (max-width: 1570px) {

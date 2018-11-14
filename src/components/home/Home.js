@@ -23,25 +23,28 @@ class Home extends Component {
     return (
       <div>
         <HomeHeader />
-        <HomeTable />
-        <HomeMoviesDisplay
-          title="i am a title"
-          items={this.props.moviesTrending}
-        />
+        <div class="main">
+          <HomeTable />
+          <HomeMoviesDisplay
+            title="i am a title"
+            items={this.props.moviesTrending}
+          />
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  moviesTrending: state.fetchMoviesTrending
+  moviesTrending: state.trending.output
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchMoviesTrending: url => dispatch(fetchMoviesTrending(url))
-});
+// const mapDispatchToProps = dispatch => ({
+//   fetchMoviesTrending: url => dispatch(fetchMoviesTrending(url))
+// });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  // mapDispatchToProps
+  { fetchMoviesTrending }
 )(Home);

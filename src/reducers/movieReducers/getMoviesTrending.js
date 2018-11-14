@@ -1,18 +1,19 @@
 import { GET_TRENDING } from "../../actions/types";
 
 const initialState = {
-  results: []
+  output: []
 };
 
-const getMoviesTrending = (state = initialState, action) => {
+const fetchMoviesTrending = (state = initialState, action) => {
   switch (action.type) {
     case GET_TRENDING:
       return {
-        ...action.payload
+        ...state,
+        output: action.payload
       };
     default:
       return state;
   }
 };
 
-export default getMoviesTrending;
+export default fetchMoviesTrending;

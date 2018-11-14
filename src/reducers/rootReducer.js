@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import getMoviesTrending from "./movieReducers/getMoviesTrending";
+import fetchMoviesTrending from "./movieReducers/getMoviesTrending";
 
 const rootReducer = combineReducers({
-  trending: getMoviesTrending
+  trending: fetchMoviesTrending
 });
 
 export default rootReducer;
