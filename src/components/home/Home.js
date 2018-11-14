@@ -6,6 +6,7 @@ import fetchMoviesTrending from "../../actions/movieActions/getMovieTrending";
 import HomeHeader from "../homeHeader/HomeHeader";
 import HomeTable from "../homeTable/HomeTable";
 import HomeMoviesDisplay from "../homeMoviesDisplay/HomeMoviesDisplay";
+import Footer from "../footer/Footer";
 
 class Home extends Component {
   componentDidMount() {
@@ -23,13 +24,14 @@ class Home extends Component {
     return (
       <div>
         <HomeHeader />
-        <div class="main">
+        <div className="main">
           <HomeTable />
           <HomeMoviesDisplay
             title="i am a title"
             items={this.props.moviesTrending}
           />
         </div>
+        <Footer />
       </div>
     );
   }

@@ -1,0 +1,51 @@
+/* footer */
+
+.footer {
+  padding: 7rem 12rem;
+  margin-top: 4rem;
+  background-color: #232323;
+  color: #e5e5e5;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  justify-items: center;
+}
+.footer-brand {
+  display: inline-block;
+  font-size: 1.8rem;
+}
+.footer-icon {
+  display: inline-block;
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 1rem;
+  margin: 1.2rem;
+}
+.tmdb-logo {
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+.social {
+  color: #e5e5e5;
+  display: inline-block;
+  margin: 1rem 0.5rem;
+}
+.portfolio {
+  text-decoration: none;
+  color: #ed6f5b;
+}
+
+/* media queries */
+@media (max-width: 1113px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .footer {
+    padding: 7rem;
+  }
+}

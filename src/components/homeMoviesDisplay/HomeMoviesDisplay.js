@@ -14,7 +14,7 @@ class HomeMoviesDisplay extends Component {
           {this.props.items.map(movie => (
             <div key={movie.id} className="playing-grid">
               <div className="playing-card">
-                <Link to={`details/${movie.type}/${movie.id}`}>
+                <Link to={`details/${movie.id}`}>
                   <img
                     className="playing-img"
                     src={`https://image.tmdb.org/t/p/original${
