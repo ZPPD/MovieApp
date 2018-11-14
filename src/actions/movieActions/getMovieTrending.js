@@ -9,7 +9,7 @@ const fetchMoviesTrending = url => {
   return dispatch => {
     fetch(url)
       .then(res => res.json())
-      .then(data => dispatch(saveMoviesTrending(data)))
+      .then(data => dispatch(saveMoviesTrending(data.results)))
       .catch(error => console.log(error));
   };
 };

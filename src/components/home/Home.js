@@ -24,7 +24,10 @@ class Home extends Component {
       <div>
         <HomeHeader />
         <HomeTable />
-        <HomeMoviesDisplay items={this.props.moviesTrending.results} />
+        <HomeMoviesDisplay
+          title="i am a title"
+          items={this.props.moviesTrending}
+        />
       </div>
     );
   }
@@ -40,6 +43,5 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-  Home
-);
+  mapDispatchToProps
+)(Home);

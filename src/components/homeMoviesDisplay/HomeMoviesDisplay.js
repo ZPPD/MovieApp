@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 
 class HomeMoviesDisplay extends Component {
   render() {
+    console.log(this.props.items);
+    console.log(this.props.title);
     return (
       <div className="home-results">
         <h2 className="nowPlaying">Trending Movies</h2>
         <div className="playing">
-          {this.props.items.forEach(movie => {
+          {this.props.items.forEach(movie => (
             <div key={movie.id} className="playing-grid">
               <div className="playing-card">
                 <Link to={`details/${movie.type}/${movie.id}`}>
@@ -21,8 +23,8 @@ class HomeMoviesDisplay extends Component {
                   <h3 className="playingMovie-name">{movie.title}</h3>
                 </Link>
               </div>
-            </div>;
-          })}
+            </div>
+          ))}
         </div>
       </div>
     );
