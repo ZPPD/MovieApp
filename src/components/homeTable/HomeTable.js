@@ -1,17 +1,31 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import fetchMoviesNowPlaying from "../../actions/movieActions/getMoviesNowPlaying";
+
 import "./HomeTable.css";
 
 class HomeTable extends Component {
-  // state={
-  //   movies: []
-  // };
-  // onClick = async (data-type, data-get, apiKey) => {
-  //   const res = await axios
-  //   .get(`https://api.themoviedb.org/3/${type}/${getData}?api_key=${apiKey}&language=en-US&page=1`);
-  //   this.setState({ movies: res.data });
-  // };
+  constructor(props) {
+    super(props);
+    this.state = { active: false };
+  }
+
+  onShowClick = e => {
+    this.setState({ active: true });
+    let className = "btns";
+    className += " active";
+    const apiKey = process.env.REACT_APP_API_KEY;
+    this.props.fetchMoviesNowPlaying(
+      `https://api.themoviedb.org/3/movie/now_playing/day?api_key=${apiKey}&language=en-US&page=1`
+    );
+  };
 
   render() {
+    // let className = "btns";
+    // if (this.props.isActive) {
+    //   className += " active";
+    // }
     return (
       <section className="table">
         <div className="grid-table-top">
@@ -23,17 +37,17 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="now_playing"
               data-type="movie"
-              onClick={this.onCllick}
+              onClick={this.onShowClick}
             >
               Now Playing
             </button>
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="popular"
               data-type="movie"
               onClick={this.onCllick}
@@ -43,7 +57,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="upcoming"
               data-type="movie"
               onClick={this.onCllick}
@@ -53,7 +67,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="top_rated"
               data-type="movie"
               onClick={this.onCllick}
@@ -65,7 +79,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="airing_today"
               data-type="tv"
               onClick={this.onCllick}
@@ -75,7 +89,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="popular"
               data-type="tv"
               onClick={this.onCllick}
@@ -85,7 +99,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="on_the_air"
               data-type="tv"
               onClick={this.onCllick}
@@ -95,7 +109,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className="btns"
+              className={className}
               data-get="top_rated"
               data-type="tv"
               onClick={this.onCllick}
@@ -108,5 +122,10 @@ class HomeTable extends Component {
     );
   }
 }
-
-export default HomeTable;
+const mapStateToProps = state => ({
+  moviesNowPlaying: state.nowPlaying.output
+});
+export default connect(
+  mapStateToProps,
+  { fetchMoviesNowPlaying }
+)(HomeTable);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import fetchMoviesTrending from "../../actions/movieActions/getMovieTrending";
+import fetchMoviesNowPlaying from "../../actions/movieActions/getMoviesNowPlaying";
 
 import HomeHeader from "../homeHeader/HomeHeader";
 import HomeTable from "../homeTable/HomeTable";
@@ -22,14 +23,14 @@ class Home extends Component {
   };
   render() {
     return (
-      <div>
+      <React.Fragment>
         <HomeHeader />
         <div className="main">
           <HomeTable />
           <HomeMoviesDisplay items={this.props.moviesTrending} />
         </div>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }

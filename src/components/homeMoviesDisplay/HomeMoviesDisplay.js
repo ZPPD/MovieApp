@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import "./HomeMoviesDisplay.css";
 
 class HomeMoviesDisplay extends Component {
+  state = {
+    showTrendingMovies: true
+  };
   render() {
     console.log(this.props.items);
     console.log(this.props.title);
