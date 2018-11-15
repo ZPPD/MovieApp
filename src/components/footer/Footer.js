@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Tmbdlogo from "./img/tmdblogo.png";
 import "./Footer.css";
 
 class Footer extends React.Component {
@@ -14,14 +15,18 @@ class Footer extends React.Component {
             </Link>
           </section>
           <section className="footer-rigth">
-            <img className="tmdb-logo" src="./img/tmdblogo.png" />
-            <a href="#" className="social">
+            <img
+              className="tmdb-logo"
+              src={Tmbdlogo}
+              alt="Powered by The Movie DB"
+            />
+            <a href="#!" className="social">
               <i className="fab fa-instagram fa-2x" />
             </a>
-            <a href="#" className="social">
+            <a href="#!" className="social">
               <i className="fab fa-facebook-square fa-2x" />
             </a>
-            <a href="#" className="social">
+            <a href="#!" className="social">
               <i className="fab fa-twitter-square fa-2x" />
             </a>
           </section>

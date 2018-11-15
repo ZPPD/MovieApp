@@ -26,10 +26,7 @@ class Home extends Component {
         <HomeHeader />
         <div className="main">
           <HomeTable />
-          <HomeMoviesDisplay
-            title="i am a title"
-            items={this.props.moviesTrending}
-          />
+          <HomeMoviesDisplay items={this.props.moviesTrending} />
         </div>
         <Footer />
       </div>
