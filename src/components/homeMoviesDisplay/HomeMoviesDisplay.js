@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import "./HomeMoviesDisplay.css";
 
 class HomeMoviesDisplay extends Component {
-  state = {
-    showTrendingMovies: true
-  };
+  // state = {
+  //   showTrendingMovies: true
+  // };
   render() {
-    console.log(this.props.items);
-    console.log(this.props.title);
+    // console.log(this.props.items);
     return (
       <section className="home-results">
         <h2 className="nowPlaying">Trending Movies</h2>

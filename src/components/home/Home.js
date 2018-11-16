@@ -21,13 +21,27 @@ class Home extends Component {
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&language=en-US&page=1`
     );
   };
+
+  // change displayed movies on btn click
+  componentDidUpdate() {
+    this.buttonMovies();
+  }
+
+  buttonMovies = () => {
+    this.setState(state => {
+      return { movies: state.movies };
+    });
+  };
   render() {
     return (
       <React.Fragment>
         <HomeHeader />
         <div className="main">
           <HomeTable />
-          <HomeMoviesDisplay items={this.props.moviesTrending} />
+          <HomeMoviesDisplay
+            items={this.props.moviesTrending}
+            onChange={this.buttonMovies}
+          />
         </div>
         <Footer />
       </React.Fragment>
@@ -36,15 +50,17 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  moviesTrending: state.trending.output
+  moviesTrending: state.trending.output,
+  moviesNowPlaying: state.nowPlaying.output
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchMoviesTrending: url => dispatch(fetchMoviesTrending(url))
-// });
+const mapDispatchToProps = dispatch => ({
+  fetchMoviesTrending: url => dispatch(fetchMoviesTrending(url)),
+  fetchMoviesNowPlaying: url => dispatch(fetchMoviesNowPlaying(url))
+});
 
 export default connect(
   mapStateToProps,
-  // mapDispatchToProps
-  { fetchMoviesTrending }
+  mapDispatchToProps
+  // { fetchMoviesTrending }
 )(Home);

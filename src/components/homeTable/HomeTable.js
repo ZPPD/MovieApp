@@ -6,26 +6,22 @@ import fetchMoviesNowPlaying from "../../actions/movieActions/getMoviesNowPlayin
 import "./HomeTable.css";
 
 class HomeTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { active: false };
-  }
-
   onShowClick = e => {
-    this.setState({ active: true });
-    let className = "btns";
-    className += " active";
+    const type = e.target.dataset.type;
+    //console.log(type);
+    const getData = e.target.dataset.get;
+    //console.log(getData);
     const apiKey = process.env.REACT_APP_API_KEY;
     this.props.fetchMoviesNowPlaying(
-      `https://api.themoviedb.org/3/movie/now_playing/day?api_key=${apiKey}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/${type}/${getData}?api_key=${apiKey}&language=en-US&page=1`
     );
   };
 
   render() {
-    // let className = "btns";
-    // if (this.props.isActive) {
-    //   className += " active";
-    // }
+    let className = "btns";
+    if (this.props.isActive) {
+      className += " active";
+    }
     return (
       <section className="table">
         <div className="grid-table-top">
