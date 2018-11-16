@@ -10,6 +10,10 @@ import HomeMoviesDisplay from "../homeMoviesDisplay/HomeMoviesDisplay";
 import Footer from "../footer/Footer";
 
 class Home extends Component {
+  state = {
+    showTrending: true,
+    showButtonMovies: false
+  };
   componentDidMount() {
     this.trendingMovies();
   }
@@ -23,25 +27,37 @@ class Home extends Component {
   };
 
   // change displayed movies on btn click
-  componentDidUpdate() {
-    this.buttonMovies();
-  }
+  // componentDidUpdate() {
+  //   this.buttonMovies();
+  // }
 
-  buttonMovies = () => {
-    this.setState(state => {
-      return { movies: state.movies };
-    });
-  };
+  // buttonMovies = () => {
+  //   this.setState(state => {
+  //     showTrending: !this.state.showTrending
+  //   });
+  // };
   render() {
+    const { showButtonMovies, showTrending } = this.state;
+    const btnMovies = "";
+
+    // if button movies state is true, hide trending and show btn movies
+    if (showButtonMovies) {
+      btnMovies = this.props.moviesTrending;
+    } else {
+    }
     return (
       <React.Fragment>
         <HomeHeader />
         <div className="main">
-          <HomeTable />
-          <HomeMoviesDisplay
-            items={this.props.moviesTrending}
-            onChange={this.buttonMovies}
+          <HomeTable
+            onClick={() =>
+              this.setState({
+                showTrending: !this.state.showTrending,
+                showButtonMovies: !this.state.showButtonMovies
+              })
+            }
           />
+          <HomeMoviesDisplay items={this.props.moviesTrending} />
         </div>
         <Footer />
       </React.Fragment>

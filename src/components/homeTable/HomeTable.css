@@ -32,10 +32,14 @@
 .table-flex > button:hover {
   color: #e5e5e5;
 }
-.active {
+.table-flex > button:focus {
   color: #e5e5e5 !important;
   border-bottom: 3px solid #ed6f5b !important;
 }
+/* .active {
+  color: #e5e5e5 !important;
+  border-bottom: 3px solid #ed6f5b !important;
+} */
 
 /* media queries */
 @media (max-width: 1570px) {

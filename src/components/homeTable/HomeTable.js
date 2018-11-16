@@ -6,7 +6,35 @@ import fetchMoviesNowPlaying from "../../actions/movieActions/getMoviesNowPlayin
 import "./HomeTable.css";
 
 class HomeTable extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isActive: false
+    };
+  }
+
   onShowClick = e => {
+    e.preventDefault();
+    this.setState({ isActive: !this.state.isActive });
+    let btns = e.target.className;
+    // activeClass += " active";
+    // if (!e.target.classList.contains("active")) {
+    //   e.target.classList.add("active");
+    // } else {
+    //   e.target.;
+    // }
+
+    // console.log(activeClass);
+    // activeClass += " active";
+
+    // let className = this.state.className;
+    // if (className !== "btns active") {
+    //   className = className + " active";
+    //   this.setState({ className });
+    //   console.log(className);
+    // } else {
+    //   return false;
+    // }
     const type = e.target.dataset.type;
     //console.log(type);
     const getData = e.target.dataset.get;
@@ -18,10 +46,10 @@ class HomeTable extends Component {
   };
 
   render() {
-    let className = "btns";
-    if (this.props.isActive) {
-      className += " active";
-    }
+    // let className = "btns";
+    // if (this.state.isActive) {
+    //   className += " active";
+    // }
     return (
       <section className="table">
         <div className="grid-table-top">
@@ -33,7 +61,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="now_playing"
               data-type="movie"
               onClick={this.onShowClick}
@@ -43,17 +71,17 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="popular"
               data-type="movie"
-              onClick={this.onCllick}
+              onClick={this.onShowClick}
             >
               Popular
             </button>
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="upcoming"
               data-type="movie"
               onClick={this.onCllick}
@@ -63,7 +91,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="top_rated"
               data-type="movie"
               onClick={this.onCllick}
@@ -75,7 +103,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="airing_today"
               data-type="tv"
               onClick={this.onCllick}
@@ -85,7 +113,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="popular"
               data-type="tv"
               onClick={this.onCllick}
@@ -95,7 +123,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="on_the_air"
               data-type="tv"
               onClick={this.onCllick}
@@ -105,7 +133,7 @@ class HomeTable extends Component {
             <button
               name="getHome"
               type="button"
-              className={className}
+              className="btns"
               data-get="top_rated"
               data-type="tv"
               onClick={this.onCllick}
