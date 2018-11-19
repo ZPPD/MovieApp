@@ -6,17 +6,10 @@ import fetchMoviesNowPlaying from "../../actions/movieActions/getMoviesNowPlayin
 import "./HomeTable.css";
 
 class HomeTable extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isActive: false
-    };
-  }
-
   onShowClick = e => {
     e.preventDefault();
-    this.setState({ isActive: !this.state.isActive });
-    let btns = e.target.className;
+    this.props.onButtonChange(type, getData);
+
     // activeClass += " active";
     // if (!e.target.classList.contains("active")) {
     //   e.target.classList.add("active");
@@ -84,7 +77,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="upcoming"
               data-type="movie"
-              onClick={this.onCllick}
+              onClick={this.onShowCllick}
             >
               Upcoming
             </button>
@@ -94,7 +87,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="top_rated"
               data-type="movie"
-              onClick={this.onCllick}
+              onClick={this.onShowCllick}
             >
               Top Rated
             </button>
@@ -106,7 +99,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="airing_today"
               data-type="tv"
-              onClick={this.onCllick}
+              onClick={this.onShowCllick}
             >
               Airing Today
             </button>
@@ -116,7 +109,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="popular"
               data-type="tv"
-              onClick={this.onCllick}
+              onClick={this.onShowCllick}
             >
               Popular
             </button>
@@ -126,7 +119,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="on_the_air"
               data-type="tv"
-              onClick={this.onCllick}
+              onClick={this.onShowCllick}
             >
               On The Air
             </button>
@@ -136,7 +129,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="top_rated"
               data-type="tv"
-              onClick={this.onCllick}
+              onClick={this.onShowCllick}
             >
               Top Rated
             </button>
