@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import fetchMoviesTrending from "../../actions/movieActions/getMovieTrending";
-import fetchMoviesNowPlaying from "../../actions/movieActions/getMoviesNowPlaying";
+import fetchMoviesFromButton from "../../actions/movieActions/getMoviesFromButton";
+// import fetchMoviesPopular from "../../actions/movieActions/getMoviesPopular";
 
 import HomeHeader from "../homeHeader/HomeHeader";
 import HomeTable from "../homeTable/HomeTable";
@@ -38,14 +39,14 @@ class Home extends Component {
           <HomeTable
             onButtonChange={() =>
               this.setState({
-                showButtonMovies: !this.state.showButtonMovies
+                showButtonMovies: true
               })
             }
           />
           <HomeMoviesDisplay
             items={
               this.state.showButtonMovies
-                ? this.props.moviesNowPlaying
+                ? this.props.moviesFromButton
                 : this.props.moviesTrending
             }
           />
@@ -58,12 +59,14 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   moviesTrending: state.trending.output,
-  moviesNowPlaying: state.nowPlaying.output
+  moviesFromButton: state.nowPlaying.output
+  // moviesPopular: state.popularMovies.output
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchMoviesTrending: url => dispatch(fetchMoviesTrending(url)),
-  fetchMoviesNowPlaying: url => dispatch(fetchMoviesNowPlaying(url))
+  fetchMoviesFromButton: url => dispatch(fetchMoviesFromButton(url))
+  // fetchMoviesPopular: url => dispatch(fetchMoviesPopular(url))
 });
 
 export default connect(

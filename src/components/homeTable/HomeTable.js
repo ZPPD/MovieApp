@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import fetchMoviesNowPlaying from "../../actions/movieActions/getMoviesNowPlaying";
+import fetchMoviesFromButton from "../../actions/movieActions/getMoviesFromButton";
 
 import "./HomeTable.css";
+import Home from "../home/Home";
 
 class HomeTable extends Component {
   onShowClick = e => {
@@ -33,7 +34,7 @@ class HomeTable extends Component {
     const getData = e.target.dataset.get;
     //console.log(getData);
     const apiKey = process.env.REACT_APP_API_KEY;
-    this.props.fetchMoviesNowPlaying(
+    this.props.fetchMoviesFromButton(
       `https://api.themoviedb.org/3/${type}/${getData}?api_key=${apiKey}&language=en-US&page=1`
     );
   };
@@ -77,7 +78,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="upcoming"
               data-type="movie"
-              onClick={this.onShowCllick}
+              onClick={this.onShowClick}
             >
               Upcoming
             </button>
@@ -87,7 +88,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="top_rated"
               data-type="movie"
-              onClick={this.onShowCllick}
+              onClick={this.onShowClick}
             >
               Top Rated
             </button>
@@ -99,7 +100,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="airing_today"
               data-type="tv"
-              onClick={this.onShowCllick}
+              onClick={this.onShowClick}
             >
               Airing Today
             </button>
@@ -109,7 +110,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="popular"
               data-type="tv"
-              onClick={this.onShowCllick}
+              onClick={this.onShowClick}
             >
               Popular
             </button>
@@ -119,7 +120,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="on_the_air"
               data-type="tv"
-              onClick={this.onShowCllick}
+              onClick={this.onShowClick}
             >
               On The Air
             </button>
@@ -129,7 +130,7 @@ class HomeTable extends Component {
               className="btns"
               data-get="top_rated"
               data-type="tv"
-              onClick={this.onShowCllick}
+              onClick={this.onShowClick}
             >
               Top Rated
             </button>
@@ -140,9 +141,9 @@ class HomeTable extends Component {
   }
 }
 const mapStateToProps = state => ({
-  moviesNowPlaying: state.nowPlaying.output
+  moviesFromButton: state.nowPlaying.output
 });
 export default connect(
   mapStateToProps,
-  { fetchMoviesNowPlaying }
+  { fetchMoviesFromButton }
 )(HomeTable);
