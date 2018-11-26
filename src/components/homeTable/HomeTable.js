@@ -11,7 +11,11 @@ class HomeTable extends Component {
   onShowClick = e => {
     e.preventDefault();
     this.props.onButtonChange();
-    console.log(this.props.itemType);
+
+    const setType = e.target.dataset.type.toUpperCase();
+    console.log("buttontype", setType);
+    this.props.setItemType(`${setType}`);
+    // console.log(this.props.itemType);
 
     // activeClass += " active";
     // if (!e.target.classList.contains("active")) {
@@ -31,6 +35,13 @@ class HomeTable extends Component {
     // } else {
     //   return false;
     // }
+
+    // get data-get
+    this.props.getHeading = getData => {
+      const transform = getData.replace(/\_/g, " ").toUpperCase();
+      console.log(transform);
+      return transform;
+    };
     const type = e.target.dataset.type;
     //console.log(type);
     const getData = e.target.dataset.get;

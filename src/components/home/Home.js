@@ -17,10 +17,7 @@ class Home extends Component {
     super(props);
     this.state = { showButtonMovies: false };
   }
-  // state = {
-  //   // showTrending: true,
-  //   showButtonMovies: false
-  // };
+
   componentDidMount() {
     this.trendingMovies();
   }
@@ -34,6 +31,7 @@ class Home extends Component {
   };
 
   render() {
+    console.log("in home", this.props.itemType);
     return (
       <React.Fragment>
         <HomeHeader />
@@ -47,6 +45,8 @@ class Home extends Component {
             }
           />
           <HomeMoviesDisplay
+            heading={this.props.getHeading}
+            type={this.props.itemType}
             items={
               this.state.showButtonMovies
                 ? this.props.moviesFromButton

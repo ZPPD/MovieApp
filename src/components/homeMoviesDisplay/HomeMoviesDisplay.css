@@ -4,6 +4,7 @@
   width: 150px;
   height: auto;
   border-radius: 5px;
+  color: #e5e5e5;
 }
 .playing-grid {
   opacity: 0.8;
@@ -14,10 +15,12 @@
 .nowPlaying {
   color: #e5e5e5;
   margin: 1.5rem 0;
+  text-transform: capitalize;
 }
 .playingMovie-name {
   color: #b7b7b7;
   font-size: 1.2rem;
+  padding-right: 0.5rem;
 }
 
 .playing-grid:hover {
