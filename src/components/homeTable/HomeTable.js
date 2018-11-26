@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import setItemType from "../../actions/setItemType";
+
 import fetchMoviesFromButton from "../../actions/movieActions/getMoviesFromButton";
 
 import "./HomeTable.css";
-import Home from "../home/Home";
 
 class HomeTable extends Component {
   onShowClick = e => {
     e.preventDefault();
-    this.props.onButtonChange(type, getData);
+    this.props.onButtonChange();
+    console.log(this.props.itemType);
 
     // activeClass += " active";
     // if (!e.target.classList.contains("active")) {
@@ -40,6 +42,15 @@ class HomeTable extends Component {
   };
 
   render() {
+    // @To-Do this active class selection has to be changed
+    const btns = document.querySelectorAll("button");
+
+    btns.forEach(btn =>
+      btn.addEventListener("click", function(e) {
+        btns.forEach(btn => btn.classList.remove("active"));
+        e.target.classList.add("active");
+      })
+    );
     // let className = "btns";
     // if (this.state.isActive) {
     //   className += " active";
@@ -141,9 +152,10 @@ class HomeTable extends Component {
   }
 }
 const mapStateToProps = state => ({
-  moviesFromButton: state.nowPlaying.output
+  moviesFromButton: state.nowPlaying.output,
+  itemType: state.setItemType.itemType
 });
 export default connect(
   mapStateToProps,
-  { fetchMoviesFromButton }
+  { fetchMoviesFromButton, setItemType }
 )(HomeTable);

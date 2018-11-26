@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import setItemType from "../../actions/setItemType";
+
 import fetchMoviesTrending from "../../actions/movieActions/getMovieTrending";
 import fetchMoviesFromButton from "../../actions/movieActions/getMoviesFromButton";
 // import fetchMoviesPopular from "../../actions/movieActions/getMoviesPopular";
@@ -37,6 +39,7 @@ class Home extends Component {
         <HomeHeader />
         <div className="main">
           <HomeTable
+            type={this.props.itemType}
             onButtonChange={() =>
               this.setState({
                 showButtonMovies: true
@@ -59,11 +62,14 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   moviesTrending: state.trending.output,
-  moviesFromButton: state.nowPlaying.output
+  moviesFromButton: state.nowPlaying.output,
+  itemType: state.setItemType.itemType
   // moviesPopular: state.popularMovies.output
 });
 
 const mapDispatchToProps = dispatch => ({
+  setItemType: type => dispatch(setItemType(type)),
+
   fetchMoviesTrending: url => dispatch(fetchMoviesTrending(url)),
   fetchMoviesFromButton: url => dispatch(fetchMoviesFromButton(url))
   // fetchMoviesPopular: url => dispatch(fetchMoviesPopular(url))
