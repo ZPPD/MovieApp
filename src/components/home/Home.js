@@ -45,7 +45,7 @@ class Home extends Component {
             }
           />
           <HomeMoviesDisplay
-            heading={this.props.getHeading}
+            // heading={this.props.getHeading()}
             type={this.props.itemType}
             items={
               this.state.showButtonMovies

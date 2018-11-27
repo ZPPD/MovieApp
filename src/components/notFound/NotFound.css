@@ -1,0 +1,13 @@
+.not-found {
+  margin: 3rem auto;
+  width: 50%;
+  text-align: center;
+}
+
+.not_found_message {
+  font-size: 2.5rem;
+}
+
+.not_found_p {
+  font-size: 1.3rem;
+}

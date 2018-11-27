@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { fetchConfigData } from "./actions/configData";
 
 import Home from "./components/home/Home";
+import NotFound from "./components/notFound/NotFound";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -27,6 +28,7 @@ class App extends Component {
             <HomeTable /> */}
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route component={NotFound} />
             </Switch>
           </div>
         </Router>

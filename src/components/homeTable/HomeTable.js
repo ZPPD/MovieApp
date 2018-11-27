@@ -36,12 +36,13 @@ class HomeTable extends Component {
     //   return false;
     // }
 
-    // get data-get
-    this.props.getHeading = getData => {
-      const transform = getData.replace(/\_/g, " ").toUpperCase();
-      console.log(transform);
-      return transform;
-    };
+    // // get data-get
+    // getHeading = data => {
+    //   const transform = data.replace(/\_/g, " ").toUpperCase();
+    //   console.log(transform);
+    //   return transform;
+    // };
+    const heading = this.props.getData;
     const type = e.target.dataset.type;
     //console.log(type);
     const getData = e.target.dataset.get;

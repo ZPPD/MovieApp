@@ -30,6 +30,30 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 }
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.prev-page,
+.next-page {
+  margin: 2rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  width: 12%;
+  background-color: #ed6f5b;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prev-page:hover,
+.next-page:hover {
+  background-color: #bd5848;
+}
 
 /* media queries */
 @media (max-width: 1400px) {
@@ -41,6 +65,10 @@
 @media (max-width: 750px) {
   .playing {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .prev-page,
+  .next-page {
+    width: 30%;
   }
 }
 

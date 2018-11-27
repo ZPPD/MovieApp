@@ -39,11 +39,12 @@
   border: none;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
+  background-color: #ed6f5b;
+  cursor: pointer;
 }
 
 .search-button:hover {
-  background-color: #ed6f5b;
-  cursor: pointer;
+  color: #e5e5e5;
 }
 
 /* tablets and medium desktop desktop */

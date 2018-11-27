@@ -7,12 +7,30 @@ import setItemType from "../../actions/setItemType";
 import "./HomeMoviesDisplay.css";
 
 class HomeMoviesDisplay extends Component {
-  // get data-get
-  getHeading = data => {
-    const transform = data.replace(/\_/g, " ");
-    console.log(transform);
-    return transform;
+  state = {
+    page: 1
   };
+  // // this goes for search
+  //   // handle pagination
+  // handlePagination = pageTransition => {
+  //   if (this.state.page === 1 && pageTransition === "-") {
+  //     this.setState({ page: 1 });
+  //   } else if (pageTransition === "+") {
+  //     this.setState({ page: this.state.page + 1 });
+  //   } else if (pageTransition === "-") {
+  //     this.setState({ page: this.state.page - 1 });
+  //   }
+  //   // call the fetch function
+  //   this.props.trendingMovies();
+  //   this.props.onShowClick();
+  // };
+
+  // get data-get
+  // getHeading = data => {
+  //   const transform = data.replace(/\_/g, " ");
+  //   console.log(transform);
+  //   return transform;
+  // };
   render() {
     // console.log(this.props.items);
     // console.log("in movies display", this.props.itemType);
@@ -66,9 +84,7 @@ class HomeMoviesDisplay extends Component {
     }
     return (
       <section className="home-results">
-        <h2 className="nowPlaying">
-          Trending Movies {this.props.getHeading(heading)}
-        </h2>
+        <h2 className="nowPlaying">Trending Movies</h2>
         {/* <div className="playing">
           {this.props.items.map(movie => (
             <div key={movie.id} className="playing-grid">
@@ -90,6 +106,20 @@ class HomeMoviesDisplay extends Component {
           ))}
         </div> */}
         {movieResult}
+        {/* <div className="pagination">
+          <button
+            className="prev-page page"
+            onClick={() => this.handlePagination("-")}
+          >
+            <i className="fas fa-arrow-circle-left" /> Previous
+          </button>
+          <button
+            className="next-page page"
+            onClick={() => this.handlePagination("+")}
+          >
+            <i className="fas fa-arrow-circle-right" /> Next
+          </button>
+        </div> */}
       </section>
     );
   }
