@@ -35,7 +35,7 @@ class Home extends Component {
     return (
       <React.Fragment>
         <HomeHeader />
-        <div className="main">
+        <main className="main">
           <HomeTable
             type={this.props.itemType}
             onButtonChange={() =>
@@ -53,7 +53,7 @@ class Home extends Component {
                 : this.props.moviesTrending
             }
           />
-        </div>
+        </main>
         <Footer />
       </React.Fragment>
     );

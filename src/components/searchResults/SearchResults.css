@@ -1,0 +1,114 @@
+/* search result output */
+.searchHeader {
+  text-align: center;
+  margin-top: 8rem;
+  color: #e5e5e5;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+.search-divider {
+  margin-bottom: 5rem;
+  width: 100px;
+  border-bottom: 2px solid #ed6f5b;
+}
+
+.movie-link {
+  text-decoration: none;
+}
+
+/* images from search result */
+.searchMovie-img {
+  width: 200px;
+  height: auto;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+.searchMovie-img:hover {
+  opacity: 1;
+}
+/* movie names from search result */
+.searchMovie-title {
+  color: #e5e5e5;
+  margin-top: 1.1rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.media-type {
+  color: #b7b7b7;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1rem;
+  margin: 0 0.5rem;
+}
+/* card */
+.card-movie {
+  margin: 2.2rem 0.3rem;
+}
+/* grid movie */
+.movieDiv {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* alert */
+.alert {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  color: #9f6000;
+  background-color: #feefb3;
+}
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.prev-page,
+.next-page {
+  margin: 2rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  width: 12%;
+  background-color: #ed6f5b;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prev-page:hover,
+.next-page:hover {
+  background-color: #bd5848;
+}
+/* media queries */
+@media (max-width: 1400px) {
+  .movieDiv {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 750px) {
+  .movieDiv {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .searchMovie-img {
+    width: 150px;
+  }
+  .prev-page,
+  .next-page {
+    width: 30%;
+  }
+}
+
+@media (max-width: 580px) {
+  .movieDiv {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

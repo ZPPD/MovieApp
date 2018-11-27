@@ -32,7 +32,7 @@ class HomeHeader extends React.Component {
             />
             {/* @To-Do add validation for search, ternary if no input, 404 not found */}
             <Link to={`/search-results/${this.state.searchValue}`}>
-              <button className="search-button">
+              <button className="search-button" type="submit">
                 <i className="fas fa-search" />
               </button>
             </Link>
