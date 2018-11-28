@@ -4,6 +4,7 @@ import fetchMoviesTrending from "./movieReducers/getMoviesTrending";
 import fetchMoviesFromButton from "./movieReducers/getMoviesFromButton";
 import fetchMovieDetails from "./movieReducers/getMovieDetails";
 import fetchMovieCredits from "./movieReducers/getMovieCredits";
+import fetchMovieTrailers from "./movieReducers/getMovieTrailers";
 
 import fetchPersonDetails from "./personReducers/getPersonDetails";
 import fetchPersonPhotos from "./personReducers/getPersonPhotos";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   nowPlaying: fetchMoviesFromButton,
   movieDetails: fetchMovieDetails,
   movieCredits: fetchMovieCredits,
+  movieTrailers: fetchMovieTrailers,
 
   personDetails: fetchPersonDetails,
   personPhotos: fetchPersonPhotos,

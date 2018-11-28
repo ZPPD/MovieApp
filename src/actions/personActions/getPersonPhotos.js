@@ -1,6 +1,6 @@
 import { GET_PEOPLE_PHOTOS } from "../types";
 
-const savePersonDetails = payload => ({
+const savePersonPhotos = payload => ({
   type: GET_PEOPLE_PHOTOS,
   payload
 });

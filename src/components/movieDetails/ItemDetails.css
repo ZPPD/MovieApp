@@ -1,0 +1,118 @@
+/* header styles for movie details */
+* {
+  margin: 0;
+  padding: 0;
+}
+.details-header {
+  top: 0;
+  left: 0;
+  /* background: linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  background-color: #485461;
+  /* background-image: linear-gradient(315deg, #485461 0%, #28313b 74%); */
+}
+
+.details-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    0deg,
+    rgb(0, 0, 0) 1%,
+    rgba(0, 0, 0, 0.45) 82%
+  );
+  opacity: 0.8;
+}
+
+.back-arrow {
+  cursor: pointer;
+  display: inline-block;
+  border: solid #fff;
+  border-width: 0 7px 7px 0;
+  padding: 3px;
+  top: 20%;
+  transform: rotate(135deg);
+  position: absolute;
+  padding: 0.8rem;
+  margin-left: 7rem;
+}
+
+.details-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 7rem;
+  color: #e5e5e5;
+}
+
+.details-title p {
+  color: #b7b7b7;
+  text-transform: uppercase;
+  padding: 0.2rem;
+}
+
+/* main */
+.main-detail {
+  margin: 0 auto;
+  max-width: 70%;
+  padding: 4rem;
+}
+/* summary */
+.summary-detail {
+  color: #e5e5e5;
+}
+.summary-detail h2 {
+  font-weight: 500;
+  padding: 1rem 0;
+}
+.summary-detail p {
+  letter-spacing: 0.8px;
+  line-height: 1.5;
+}
+
+/* cast and trailers */
+.filmCast,
+.filmTrailer,
+.filmCredits,
+.filmPhotos {
+  font-weight: 500;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  color: #e5e5e5;
+}
+.cast-img {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.actor-card {
+  margin: 2.2rem 1rem;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.actor-card:hover {
+  opacity: 1;
+}
+.actors,
+.trailers {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  /* justify-content: space-between; */
+}
+.cast-name {
+  color: #e5e5e5;
+  font-weight: 500;
+}
+
+.trailer-grid {
+  margin: 2rem;
+}
