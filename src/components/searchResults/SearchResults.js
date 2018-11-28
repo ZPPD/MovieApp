@@ -17,6 +17,9 @@ class SearchResults extends Component {
   componentDidMount() {
     this.searchResultsMovies();
   }
+  componentWillUpdate() {
+    this.searchResultsMovies();
+  }
   searchResultsMovies() {
     const apiKey = process.env.REACT_APP_API_KEY;
     console.log(this.props.match.params.id);
@@ -26,26 +29,15 @@ class SearchResults extends Component {
       }&page=${this.state.page}&include_adult=false`
     );
   }
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.id !== this.props.match.params.id) {
-      const apiKey = process.env.REACT_APP_API_KEY;
-      console.log(this.props.match.params.id);
-      this.props.searchMovies(
-        `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${
-          this.props.match.params.id
-        }&page=${this.state.page}&include_adult=false`
-      );
-    }
-  }
 
   // handle pagination
   handlePagination = pageTransition => {
     if (this.state.page === 1 && pageTransition === "-") {
       this.setState({ page: 1 });
     } else if (pageTransition === "+") {
-      this.setState({ page: this.state.page++ });
+      this.setState({ page: this.state.page + 1 });
     } else if (pageTransition === "-") {
-      this.setState({ page: this.state.page-- });
+      this.setState({ page: this.state.page - 1 });
     }
     // call the fetch function
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -72,7 +64,7 @@ class SearchResults extends Component {
                 ? this.props.searchResults.map(item => (
                     <Link
                       key={item.id}
-                      to={`details/${item.media_type}/${item.id}`}
+                      to={`/details/${item.media_type}/${item.id}`}
                     >
                       <div className="card-movie">
                         <img

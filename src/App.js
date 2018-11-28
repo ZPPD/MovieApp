@@ -7,6 +7,7 @@ import { fetchConfigData } from "./actions/configData";
 
 import Home from "./components/home/Home";
 import SearchResults from "./components/searchResults/SearchResults";
+import ItemDetails from "./components/movieDetails/ItemDetails";
 import NotFound from "./components/notFound/NotFound";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -34,6 +35,7 @@ class App extends Component {
                 path="/search-results/:id"
                 component={SearchResults}
               />
+              <Route exact path="/details/:type/:id" component={ItemDetails} />
               <Route component={NotFound} />
             </Switch>
           </div>
