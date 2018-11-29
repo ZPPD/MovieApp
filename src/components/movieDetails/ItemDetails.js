@@ -18,6 +18,7 @@ class ItemDetails extends Component {
   componentDidMount() {
     this.fetchData(this.props.match.params.id);
   }
+
   fetchData(id, type = this.props.match.params.type) {
     const apiKey = process.env.REACT_APP_API_KEY;
     if (type === "movie" || type === "tv") {
@@ -40,6 +41,12 @@ class ItemDetails extends Component {
       this.props.fetchPersonCredits(
         `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${apiKey}&language=en-US`
       );
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      this.fetchData(nextProps.match.params.id, nextProps.match.params.type);
     }
   }
 
@@ -88,11 +95,154 @@ class ItemDetails extends Component {
         </React.Fragment>
       );
     }
+    if (type === "person") {
+      return (
+        <React.Fragment>
+          <header className="details-person-header">
+            <section className="details-title">
+              <img
+                className="person-img"
+                src={`https://image.tmdb.org/t/p/original${
+                  this.props.personDetails.profile_path
+                }`}
+                alt={this.props.personDetails.name}
+              />
+              <h1>{this.props.personDetails.name}</h1>
+              <p>{this.props.personDetails.known_for_department}</p>
+              <p>
+                Born: {this.props.personDetails.birthday} |{" "}
+                {this.props.personDetails.place_of_birth}
+              </p>
+            </section>
+          </header>
+          <section className="main-person main-detail">
+            <h2>Biography</h2>
+            <div className="bio">
+              <h3 className="biography-person">
+                {this.props.personDetails.biography}
+              </h3>
+            </div>
+          </section>
+        </React.Fragment>
+      );
+    }
   };
+
+  ItemDetailsCast = type => {
+    if (type === "movie" || type === "tv") {
+      return (
+        <section className="cast">
+          <h2 className="filmCast">Cast</h2>
+          <div className="actors">
+            {this.props.movieCredits.map(cast => (
+              <Link key={cast.id} to={`/details/person/${cast.id}`}>
+                <div className="actor-card">
+                  <img
+                    className="cast-img"
+                    src={`https://image.tmdb.org/t/p/original${
+                      cast.profile_path
+                    }`}
+                    alt={cast.name}
+                  />
+                  <h3 className="cast-name">
+                    {cast.name} as {cast.character}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    if (type === "person") {
+      return (
+        <section className="cast">
+          <h2 className="filmPhotos">Photos</h2>
+          <div className="photoSection">
+            {this.props.personPhotos.map((photo, i) => (
+              <div key={i} className="photo-card">
+                <img
+                  className="photo-image"
+                  src={`https://image.tmdb.org/t/p/original${photo.file_path}`}
+                  alt="Actor"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+  };
+
+  ItemDetailsTrailerFilmography = type => {
+    if (type === "movie" || type === "tv") {
+      return (
+        <section className="cast">
+          <h2 className="filmTrailer">Trailer</h2>
+          <div className="trailers">
+            {this.props.movieTrailers.map((trailer, j) => (
+              <div key={j} className="trailer-grid">
+                <iframe
+                  width="420"
+                  height="300"
+                  src={`https://www.youtube.com/embed/${trailer.key}`}
+                  frameBorder="0"
+                  allowFullScreen
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    if (type === "person") {
+      return (
+        <section className="cast">
+          <h2 className="filmCredits">Filmography</h2>
+          {this.props.personCredits.map(credit => (
+            <div key={credit.id} className="card-credit">
+              <Link
+                to={`/details/${credit.media_type}/${credit.id}`}
+                className="credit-flex"
+              >
+                <div>
+                  <img
+                    className="credit-img"
+                    src={`https://image.tmdb.org/t/p/original${
+                      credit.poster_path
+                    }`}
+                    alt="Filmography"
+                  />
+                </div>
+                <div>
+                  <h2 className="credit-title">
+                    {credit.media_type === "movie"
+                      ? credit.original_title
+                      : credit.name}
+                  </h2>
+                  <p>
+                    {credit.media_type === "movie"
+                      ? credit.release_date
+                      : credit.first_air_date}
+                  </p>
+                  <h3 className="credit-character">{credit.character}</h3>
+                  <p className="credit-overview">{credit.overview}</p>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </section>
+      );
+    }
+  };
+
   render() {
     return (
       <React.Fragment>
         {this.ItemDetailsHeader(this.props.match.params.type)}
+
+        {this.ItemDetailsCast(this.props.match.params.type)}
+        {this.ItemDetailsTrailerFilmography(this.props.match.params.type)}
         <Footer />
       </React.Fragment>
     );

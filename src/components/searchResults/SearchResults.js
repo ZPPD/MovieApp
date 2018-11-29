@@ -17,8 +17,16 @@ class SearchResults extends Component {
   componentDidMount() {
     this.searchResultsMovies();
   }
-  componentWillUpdate() {
-    this.searchResultsMovies();
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      const apiKey = process.env.REACT_APP_API_KEY;
+      this.props.searchMovies(
+        `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${
+          nextProps.match.params.id
+        }&page=${this.state.page}&include_adult=false`
+      );
+    }
   }
   searchResultsMovies() {
     const apiKey = process.env.REACT_APP_API_KEY;

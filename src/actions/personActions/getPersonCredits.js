@@ -9,7 +9,7 @@ const fetchPersonCredits = url => {
   return dispatch => {
     fetch(url)
       .then(res => res.json())
-      .then(data => dispatch(savePersonCredits(data.results)))
+      .then(data => dispatch(savePersonCredits(data.cast)))
       .catch(error => console.log(error));
   };
 };

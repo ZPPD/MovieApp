@@ -9,7 +9,7 @@
   letter-spacing: 0.2rem;
 }
 .search-divider {
-  margin-bottom: 5rem;
+  margin: 1rem auto 5rem auto;
   width: 100px;
   border-bottom: 2px solid #ed6f5b;
 }

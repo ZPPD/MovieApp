@@ -87,6 +87,11 @@
   padding: 1rem 0;
   color: #e5e5e5;
 }
+.cast {
+  padding: 0 4rem;
+  max-width: 70%;
+  margin: 0 auto;
+}
 .cast-img {
   width: 150px;
   height: auto;
@@ -115,4 +120,90 @@
 
 .trailer-grid {
   margin: 2rem;
+}
+
+/* person details styles */
+.details-person-header {
+  background-image: url("./img/theatre.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.details-person-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    0deg,
+    rgb(0, 0, 0) 20%,
+    rgba(0, 0, 0, 0.45) 90%
+  );
+  opacity: 0.8;
+}
+
+.person-img {
+  width: 200px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+.main-person {
+  color: #eeeeee;
+}
+.bio {
+  max-height: 250px;
+  display: flex;
+  overflow: auto;
+  margin-top: 0.7rem;
+}
+
+.biography-person {
+  color: #e5e5e5;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+}
+/* photos */
+.photoSection {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.photo-image {
+  height: 300px;
+  width: auto;
+  opacity: 0.9;
+  margin-right: 1rem;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+/* credit movies and tv for person */
+.credit-flex {
+  display: flex;
+  flex-direction: row;
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #2d2d2d;
+  color: #e5e5e5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+.credit-img {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.credit-character {
+  padding: 1rem 0;
+  font-weight: 500;
 }

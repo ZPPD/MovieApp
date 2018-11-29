@@ -9,7 +9,7 @@ const fetchMovieCredits = url => {
   return dispatch => {
     fetch(url)
       .then(res => res.json())
-      .then(data => dispatch(saveMovieCredits(data.results)))
+      .then(data => dispatch(saveMovieCredits(data.cast)))
       .catch(error => console.log(error));
   };
 };

@@ -9,7 +9,7 @@ const fetchPersonPhotos = url => {
   return dispatch => {
     fetch(url)
       .then(res => res.json())
-      .then(data => dispatch(savePersonPhotos(data.results)))
+      .then(data => dispatch(savePersonPhotos(data.profiles)))
       .catch(error => console.log(error));
   };
 };
