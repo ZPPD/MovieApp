@@ -79,14 +79,22 @@ class ItemDetails extends Component {
                   {this.props.movieDetails.status} |{" "}
                   {this.props.movieDetails.original_language}
                 </p>
-                {/* @To-Do: genres undefined */}
-                {/* <p>
-                {type === "movie" 
-                  ? `${this.props.movieDetails.genres[0].name}`
-                  : `${this.props.movieDetails.genres[0].name} | ${
-                      this.props.movieDetails.number_of_seasons
-                    } Seasons`}
-              </p> */}
+                <p>
+                  {type === "movie"
+                    ? `${
+                        this.props.movieDetails.genres
+                          ? this.props.movieDetails.genres[0].name
+                          : ""
+                      }`
+                    : `${
+                        this.props.movieDetails.genres
+                          ? this.props.movieDetails.genres[0].name +
+                            " | " +
+                            this.props.movieDetails.number_of_seasons +
+                            " Seasons"
+                          : ""
+                      }`}
+                </p>
               </section>
             </div>
           </header>
