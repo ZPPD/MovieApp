@@ -20,13 +20,25 @@ class Footer extends React.Component {
               src={Tmbdlogo}
               alt="Powered by The Movie DB"
             />
-            <a href="#!" className="social">
-              <i className="fab fa-instagram fa-2x" />
+            <a
+              href="https://www.themoviedb.org"
+              target="_blank"
+              className="social"
+            >
+              <i className="fas fa-laptop fa-2x" />
             </a>
-            <a href="#!" className="social">
+            <a
+              href="https://www.facebook.com/themoviedb"
+              target="_blank"
+              className="social"
+            >
               <i className="fab fa-facebook-square fa-2x" />
             </a>
-            <a href="#!" className="social">
+            <a
+              href="https://twitter.com/themoviedb"
+              target="_blank"
+              className="social"
+            >
               <i className="fab fa-twitter-square fa-2x" />
             </a>
           </section>

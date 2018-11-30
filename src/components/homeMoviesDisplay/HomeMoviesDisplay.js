@@ -50,7 +50,9 @@ class HomeMoviesDisplay extends Component {
                     src={`https://image.tmdb.org/t/p/original${
                       movie.poster_path
                     }`}
-                    alt={movie.title}
+                    alt={
+                      this.props.itemType === "TV" ? movie.name : movie.title
+                    }
                   />
                   <h3 className="playingMovie-name">
                     {this.props.itemType === "TV" ? movie.name : movie.title}

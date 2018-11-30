@@ -65,8 +65,10 @@ class ItemDetails extends Component {
               )`
               }}
             >
-              {/* @To-Do work on arrow func, use history property */}
-              <a className="back-arrow" href="#!" />
+              <div
+                className="back-arrow"
+                onClick={() => this.props.history.goBack()}
+              />
               <section className="details-title">
                 <h1>
                   {type === "movie"

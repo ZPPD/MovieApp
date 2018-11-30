@@ -102,6 +102,7 @@
   margin: 2.2rem 1rem;
   opacity: 0.8;
   cursor: pointer;
+  color: #b7b7b7;
 }
 .actor-card:hover {
   opacity: 1;
