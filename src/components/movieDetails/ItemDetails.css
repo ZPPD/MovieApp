@@ -208,3 +208,61 @@
   padding: 1rem 0;
   font-weight: 500;
 }
+
+/* media queries */
+@media (max-width: 750px) {
+  .main-detail,
+  .main-person {
+    margin: 50px 20px;
+    padding: 1rem;
+    max-width: 100%;
+  }
+  .details-title {
+    padding: 1rem;
+  }
+  .bio > h2 {
+    font-size: 1.1rem;
+  }
+  .back-arrow {
+    margin-left: 1.2rem;
+  }
+  .person-img {
+    width: 150px;
+  }
+  .details-title > p {
+    font-size: 1.1rem;
+  }
+  .details-title > h1 {
+    font-size: 1.2rem;
+  }
+  .cast-img {
+    width: 100px;
+    float: left;
+  }
+  .credit-flex {
+    display: inline-block;
+    padding: 0.8rem;
+    margin: 2rem 0;
+  }
+  .credit-overview {
+    line-height: 1.5;
+    font-size: 1.1rem;
+  }
+  .cast {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .credit-flex {
+    display: block;
+  }
+  .trailer-grid {
+    margin: 0;
+    margin-right: 1.1rem;
+  }
+  iframe {
+    width: 300px;
+  }
+}

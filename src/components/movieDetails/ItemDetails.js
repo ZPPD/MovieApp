@@ -109,6 +109,10 @@ class ItemDetails extends Component {
       return (
         <React.Fragment>
           <header className="details-person-header">
+            <div
+              className="back-arrow"
+              onClick={() => this.props.history.goBack()}
+            />
             <section className="details-title">
               <img
                 className="person-img"
@@ -250,9 +254,10 @@ class ItemDetails extends Component {
     return (
       <React.Fragment>
         {this.ItemDetailsHeader(this.props.match.params.type)}
-
-        {this.ItemDetailsCast(this.props.match.params.type)}
-        {this.ItemDetailsTrailerFilmography(this.props.match.params.type)}
+        <main>
+          {this.ItemDetailsCast(this.props.match.params.type)}
+          {this.ItemDetailsTrailerFilmography(this.props.match.params.type)}
+        </main>
         <Footer />
       </React.Fragment>
     );
