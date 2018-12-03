@@ -10,6 +10,7 @@ import fetchPersonDetails from "./personReducers/getPersonDetails";
 import fetchPersonPhotos from "./personReducers/getPersonPhotos";
 import fetchPersonCredits from "./personReducers/getPersonCredits";
 
+import getDiscover from "./discover";
 import setItemType from "./setItemType";
 import searchMovies from "./searchMovies";
 
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   personPhotos: fetchPersonPhotos,
   personCredits: fetchPersonCredits,
 
+  getDiscover,
   setItemType,
   searchMovies
 });

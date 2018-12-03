@@ -37,7 +37,9 @@ class HomeHeader extends React.Component {
               </button>
             </Link>
           </form>
-          <div />
+          <Link to="/discover" className="discover">
+            <i className="fas fa-compass fa-2x" />
+          </Link>
         </nav>
       </header>
     );

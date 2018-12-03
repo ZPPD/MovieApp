@@ -11,15 +11,19 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-.brand,
-.discover {
+.brand {
   padding: 0 1rem;
   display: block;
   text-decoration: none;
   color: #ed6f5b;
 }
 
-#searchForm {
+.discover {
+  color: #e5e5e5;
+}
+
+#searchForm,
+.discover {
   display: flex;
   align-items: center;
   justify-content: center;

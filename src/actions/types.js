@@ -30,3 +30,5 @@ export const CONFIG_DATA = "CONFIG_DATA";
 export const TOGGLE_NAV = "TOGGLE_NAV";
 export const SEARCH_MOVIES = "SEARCH_MOVIES";
 export const POST_SEARCH_RESULTS = "POST_SEARCH_RESULTS";
+
+export const GET_DISCOVER = "GET_DISCOVER";
