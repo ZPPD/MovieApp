@@ -23,6 +23,7 @@ class Footer extends React.Component {
             <a
               href="https://www.themoviedb.org"
               target="_blank"
+              rel="noopener noreferrer"
               className="social"
             >
               <i className="fas fa-laptop fa-2x" />
@@ -30,6 +31,7 @@ class Footer extends React.Component {
             <a
               href="https://www.facebook.com/themoviedb"
               target="_blank"
+              rel="noopener noreferrer"
               className="social"
             >
               <i className="fab fa-facebook-square fa-2x" />
@@ -37,6 +39,7 @@ class Footer extends React.Component {
             <a
               href="https://twitter.com/themoviedb"
               target="_blank"
+              rel="noopener noreferrer"
               className="social"
             >
               <i className="fab fa-twitter-square fa-2x" />

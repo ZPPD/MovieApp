@@ -197,6 +197,7 @@ class ItemDetails extends Component {
             {this.props.movieTrailers.map((trailer, j) => (
               <div key={j} className="trailer-grid">
                 <iframe
+                  title="trailer"
                   width="420"
                   height="300"
                   src={`https://www.youtube.com/embed/${trailer.key}`}

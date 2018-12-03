@@ -10,31 +10,16 @@ class HomeMoviesDisplay extends Component {
   state = {
     page: 1
   };
-  // // this goes for search
-  //   // handle pagination
-  // handlePagination = pageTransition => {
-  //   if (this.state.page === 1 && pageTransition === "-") {
-  //     this.setState({ page: 1 });
-  //   } else if (pageTransition === "+") {
-  //     this.setState({ page: this.state.page + 1 });
-  //   } else if (pageTransition === "-") {
-  //     this.setState({ page: this.state.page - 1 });
-  //   }
-  //   // call the fetch function
-  //   this.props.trendingMovies();
-  //   this.props.onShowClick();
-  // };
 
   // get data-get
   // getHeading = data => {
-  //   const transform = data.replace(/\_/g, " ");
+  //   const transform = data.replace(/_/g, " ");
   //   console.log(transform);
   //   return transform;
   // };
   render() {
     // console.log(this.props.items);
     // console.log("in movies display", this.props.itemType);
-
     return (
       <section className="home-results">
         <h2 className="nowPlaying">Trending Movies</h2>

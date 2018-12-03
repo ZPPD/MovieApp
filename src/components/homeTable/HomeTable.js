@@ -13,36 +13,12 @@ class HomeTable extends Component {
     this.props.onButtonChange();
 
     const setType = e.target.dataset.type.toUpperCase();
-    console.log("buttontype", setType);
+    //console.log("buttontype", setType);
     this.props.setItemType(`${setType}`);
     // console.log(this.props.itemType);
 
-    // activeClass += " active";
-    // if (!e.target.classList.contains("active")) {
-    //   e.target.classList.add("active");
-    // } else {
-    //   e.target.;
-    // }
-
-    // console.log(activeClass);
-    // activeClass += " active";
-
-    // let className = this.state.className;
-    // if (className !== "btns active") {
-    //   className = className + " active";
-    //   this.setState({ className });
-    //   console.log(className);
-    // } else {
-    //   return false;
-    // }
-
-    // // get data-get
-    // getHeading = data => {
-    //   const transform = data.replace(/\_/g, " ").toUpperCase();
-    //   console.log(transform);
-    //   return transform;
-    // };
-    const heading = this.props.getData;
+    // const heading = this.props.getData;
+    // this.props.getHeading(heading);
     const type = e.target.dataset.type;
     //console.log(type);
     const getData = e.target.dataset.get;
@@ -54,7 +30,7 @@ class HomeTable extends Component {
   };
 
   render() {
-    // @To-Do this active class selection has to be changed
+    // apply active class
     const btns = document.querySelectorAll("button");
 
     btns.forEach(btn =>
@@ -63,10 +39,12 @@ class HomeTable extends Component {
         e.target.classList.add("active");
       })
     );
-    // let className = "btns";
-    // if (this.state.isActive) {
-    //   className += " active";
-    // }
+    // // // get data-get
+    // getHeading = data => {
+    //   const transform = data.replace(/_/g, " ").toUpperCase();
+    //   console.log(transform);
+    //   return transform;
+    // };
     return (
       <section className="table">
         <div className="grid-table-top">

@@ -31,7 +31,7 @@ class Home extends Component {
   };
 
   render() {
-    console.log("in home", this.props.itemType);
+    //console.log("in home", this.props.itemType);
     return (
       <React.Fragment>
         <HomeHeader />
