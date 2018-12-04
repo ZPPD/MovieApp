@@ -61,7 +61,7 @@ class SearchResults extends Component {
       <React.Fragment>
         <HomeHeader />
         <main className="main">
-          {console.log(this.props.searchResults)}{" "}
+          {/* {console.log(this.props.searchResults)}{" "} */}
           <section className="searchResults">
             <h1 className="searchHeader">
               Search Results for {this.props.match.params.id}

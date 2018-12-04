@@ -7,6 +7,7 @@ import getDiscover from "../../actions/discover";
 import HomeHeader from "../homeHeader/HomeHeader";
 
 import "./Discover.css";
+
 class Discover extends Component {
   state = {
     sortBy: "popularity.desc",
@@ -55,25 +56,18 @@ class Discover extends Component {
   };
   render() {
     return (
-      <div>
+      <React.Fragment>
         <HomeHeader />
         <header className="discover-header">
-          <h1 className="discover-title">Discover New Movies</h1>
-          <form
-            className="discover-form"
-            method="GET"
-            action="/"
-            onChange={e => {
-              e.preventDefault();
-              this.handleDiscover();
-            }}
-          >
+          <h1 className="discover-title-header">Discover New Movies</h1>
+          <form className="discover-form" method="GET" action="/">
             <div className="form-container">
               <input
                 className="discover-input"
                 onChange={e => this.setState({ year: e.target.value })}
                 type="number"
                 name="year"
+                placeholder="2018"
               />
               <select
                 className="discover-select"
@@ -172,49 +166,74 @@ class Discover extends Component {
                 onChange={e => this.setState({ voteAverage: e.target.value })}
                 type="number"
                 name="vote_average"
-                placeHolder="Average Rating"
+                placeholder="Average Rating"
               />
               <input
                 className="discover-input"
                 onChange={e => this.setState({ withKeywords: e.target.value })}
                 type="text"
                 name="with_keywords"
-                placeHolder="Keywords"
+                placeholder="Keywords"
               />
             </div>
+            <button
+              className="discover-button"
+              onClick={e => {
+                e.preventDefault();
+                this.handleDiscover();
+              }}
+            >
+              Search
+            </button>
           </form>
         </header>
-        <main className="discover-main">
-          {this.props.discover.length > 0 ? (
-            this.props.discover.map(item => (
-              <Link
-                key={item.id}
-                to={`/details/${item.name ? "tv" : "movie"}/${item.id}`}
-              >
-                <div className="card-movie">
-                  <img
-                    className="searchMovie-img"
-                    src={`https://image.tmdb.org/t/p/original/${
-                      item.poster_path
-                    }`}
-                    alt={item.media_type === "tv" ? item.name : item.title}
-                  />
-                  <h2 className="searchMovie-title">
-                    {item.media_type === "tv" ? item.name : item.title}
-                  </h2>
-                  <h3 className="media-type">{item.media_type}</h3>
-                  <p>
-                    <i class="fas fa-star" />
-                    {`${item.vote_average}`}
-                  </p>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <h2>No results found</h2>
-          )}
+        <main className="main">
+          <section className="discover-output">
+            {this.props.discover.length > 0 ? (
+              this.props.discover.map(item => (
+                <Link
+                  key={item.id}
+                  to={`/details/${item.name ? "tv" : "movie"}/${item.id}`}
+                >
+                  <div className="card-movie">
+                    <img
+                      className="searchMovie-img"
+                      src={`https://image.tmdb.org/t/p/original/${
+                        item.poster_path
+                      }`}
+                      alt={item.media_type === "tv" ? item.name : item.title}
+                    />
+                    <h2 className="discover-title">
+                      {item.media_type === "tv" ? item.name : item.title}
+                    </h2>
+                    <p>{item.release_date}</p>
+                    <p>
+                      <i className="fas fa-star discover-vote" />{" "}
+                      {`${item.vote_average}`}
+                    </p>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <h2>No results found</h2>
+            )}
+          </section>
+          <section className="pagination">
+            <button
+              className="prev-page page"
+              onClick={() => this.handlePagination("-")}
+            >
+              <i className="fas fa-arrow-circle-left" /> Previous
+            </button>
+            <button
+              className="next-page page"
+              onClick={() => this.handlePagination("+")}
+            >
+              <i className="fas fa-arrow-circle-right" /> Next
+            </button>
+          </section>
         </main>
-      </div>
+      </React.Fragment>
     );
   }
 }

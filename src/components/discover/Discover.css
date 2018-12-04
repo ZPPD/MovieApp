@@ -1,0 +1,80 @@
+.discover-header {
+  background-image: url("./img/popcorn.jpg");
+  background-position: top;
+  margin-top: 80px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  text-align: center;
+}
+
+/* .discover-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    0deg,
+    rgb(0, 0, 0) 20%,
+    rgba(0, 0, 0, 0.45) 90%
+  );
+  opacity: 0.8;
+} */
+
+.discover-title-header {
+  margin: auto;
+  width: 50%;
+  padding: 10% 0;
+  text-transform: uppercase;
+}
+
+.discover-form {
+  margin: -80px auto auto auto;
+  padding: 2rem;
+  width: 60%;
+  background: #ed6f5b;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.discover-input,
+.discover-select {
+  padding: 0.5rem;
+  margin: 0.4rem;
+}
+
+.discover-output {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.discover-title {
+  color: #eee;
+  margin-top: 1.1rem;
+  padding-right: 0.5rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.discover-vote {
+  color: #ed6f5b;
+}
+
+@media (max-width: 1400px) {
+  .discover-output {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  .discover-output {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .discover-output {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
