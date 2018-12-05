@@ -53,6 +53,7 @@ class Discover extends Component {
     } else if (pageTransition === "-") {
       this.setState({ page: this.state.page - 1 });
     }
+    this.handleDiscover();
   };
   render() {
     return (
@@ -60,6 +61,7 @@ class Discover extends Component {
         <HomeHeader />
         <header className="discover-header">
           <h1 className="discover-title-header">Discover New Movies</h1>
+          <div className="overlay" />
           <form className="discover-form" method="GET" action="/">
             <div className="form-container">
               <input
@@ -229,7 +231,7 @@ class Discover extends Component {
               className="next-page page"
               onClick={() => this.handlePagination("+")}
             >
-              <i className="fas fa-arrow-circle-right" /> Next
+              Next <i className="fas fa-arrow-circle-right" />
             </button>
           </section>
         </main>

@@ -107,7 +107,7 @@ class SearchResults extends Component {
               className="next-page page"
               onClick={() => this.handlePagination("+")}
             >
-              <i className="fas fa-arrow-circle-right" /> Next
+              Next <i className="fas fa-arrow-circle-right" />
             </button>
           </section>
         </main>

@@ -13,6 +13,9 @@ class Footer extends React.Component {
             <Link to="/" className="footer-icon">
               Home
             </Link>
+            <Link to="/discover" className="footer-icon">
+              Discover
+            </Link>
           </section>
           <section className="footer-rigth">
             <img

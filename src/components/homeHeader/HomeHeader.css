@@ -72,3 +72,12 @@
     padding: 0.3rem 1rem;
   }
 }
+
+@media (max-width: 580px) {
+  .search-input {
+    width: 180px;
+  }
+  .brand {
+    padding: 0.3rem;
+  }
+}
