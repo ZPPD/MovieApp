@@ -22,7 +22,7 @@ class HomeMoviesDisplay extends Component {
     // console.log("in movies display", this.props.itemType);
     return (
       <section className="home-results">
-        <h2 className="nowPlaying">Trending Movies</h2>
+        <h2 className="nowPlaying">{this.props.header}</h2>
         <div className="playing">
           {this.props.items.map(movie => (
             <div key={movie.id} className="playing-grid">
