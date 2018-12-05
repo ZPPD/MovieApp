@@ -64,119 +64,153 @@ class Discover extends Component {
           <div className="overlay" />
           <form className="discover-form" method="GET" action="/">
             <div className="form-container">
-              <input
-                className="discover-input"
-                onChange={e => this.setState({ year: e.target.value })}
-                type="number"
-                name="year"
-                placeholder="2018"
-              />
-              <select
-                className="discover-select"
-                onChange={e => this.setState({ sortBy: e.target.value })}
-                name="sort-by"
-              >
-                <option className="discover-option" value="popularity.desc">
-                  Popularity Descending
-                </option>
-                <option className="discover-option" value="popularity.asc">
-                  Popularity Ascending
-                </option>
-                <option className="discover-option" value="release_date.desc">
-                  Release Date Descending
-                </option>
-                <option className="discover-option" value="release_date.asc">
-                  Release Date Ascending
-                </option>
-                <option className="discover-option" value="revenue.desc">
-                  Revenue Descending
-                </option>
-                <option className="discover-option" value="revenue.asc">
-                  Revenue Ascending
-                </option>
-                <option className="discover-option" value="vote_average.desc">
-                  Vote Average Descending
-                </option>
-                <option className="discover-option" value="vote_average.asc">
-                  Vote Average Ascending
-                </option>
-              </select>
+              <span className="discover-span">
+                <label htmlFor="year" className="discover-label">
+                  Year
+                </label>
+                <input
+                  id="year"
+                  className="discover-input"
+                  onChange={e => this.setState({ year: e.target.value })}
+                  type="number"
+                  name="year"
+                  placeholder="2018"
+                />
+              </span>
 
-              <select
-                className="discover-select"
-                onChange={e => this.setState({ withGenres: e.target.value })}
-                name="with_genres"
-              >
-                <option className="discover-option" value="28">
-                  Action
-                </option>
-                <option className="discover-option" value="12">
-                  Adventure
-                </option>
-                <option className="discover-option" value="16">
-                  Animation
-                </option>
-                <option className="discover-option" value="35">
-                  Comedy
-                </option>
-                <option className="discover-option" value="80">
-                  Crime{" "}
-                </option>
-                <option className="discover-option" value="99">
-                  Documentary
-                </option>
-                <option className="discover-option" value="18">
-                  Drama
-                </option>
-                <option className="discover-option" value="10751">
-                  Family
-                </option>
-                <option className="discover-option" value="14">
-                  Fantasy
-                </option>
-                <option className="discover-option" value="36">
-                  Horror
-                </option>
-                <option className="discover-option" value="10749">
-                  Music
-                </option>
-                <option className="discover-option" value="9648">
-                  Mystery
-                </option>
-                <option className="discover-option" value="10749">
-                  Romance
-                </option>
-                <option className="discover-option" value="878">
-                  Science Fiction
-                </option>
-                <option className="discover-option" value="10770">
-                  TV Movie
-                </option>
-                <option className="discover-option" value="53">
-                  Thriller
-                </option>
-                <option className="discover-option" value="10752">
-                  War
-                </option>
-                <option className="discover-option" value="37">
-                  Western
-                </option>
-              </select>
+              <span className="discover-span">
+                <label htmlFor="sortBy" className="discover-label">
+                  Sort By
+                </label>
+                <select
+                  id="sortBy"
+                  className="discover-select"
+                  onChange={e => this.setState({ sortBy: e.target.value })}
+                  name="sort-by"
+                >
+                  <option className="discover-option" value="popularity.desc">
+                    Popularity Descending
+                  </option>
+                  <option className="discover-option" value="popularity.asc">
+                    Popularity Ascending
+                  </option>
+                  <option className="discover-option" value="release_date.desc">
+                    Release Date Descending
+                  </option>
+                  <option className="discover-option" value="release_date.asc">
+                    Release Date Ascending
+                  </option>
+                  <option className="discover-option" value="revenue.desc">
+                    Revenue Descending
+                  </option>
+                  <option className="discover-option" value="revenue.asc">
+                    Revenue Ascending
+                  </option>
+                  <option className="discover-option" value="vote_average.desc">
+                    Vote Average Descending
+                  </option>
+                  <option className="discover-option" value="vote_average.asc">
+                    Vote Average Ascending
+                  </option>
+                </select>
+              </span>
 
-              <input
-                className="discover-input"
-                onChange={e => this.setState({ voteAverage: e.target.value })}
-                type="number"
-                name="vote_average"
-                placeholder="Average Rating"
-              />
-              <input
-                className="discover-input"
-                onChange={e => this.setState({ withKeywords: e.target.value })}
-                type="text"
-                name="with_keywords"
-                placeholder="Keywords"
-              />
+              <span className="discover-span">
+                <label htmlFor="genres" className="discover-label">
+                  Genres
+                </label>
+                <select
+                  id="genres"
+                  className="discover-select"
+                  onChange={e => this.setState({ withGenres: e.target.value })}
+                  name="with_genres"
+                >
+                  <option className="discover-option" value="28">
+                    Action
+                  </option>
+                  <option className="discover-option" value="12">
+                    Adventure
+                  </option>
+                  <option className="discover-option" value="16">
+                    Animation
+                  </option>
+                  <option className="discover-option" value="35">
+                    Comedy
+                  </option>
+                  <option className="discover-option" value="80">
+                    Crime{" "}
+                  </option>
+                  <option className="discover-option" value="99">
+                    Documentary
+                  </option>
+                  <option className="discover-option" value="18">
+                    Drama
+                  </option>
+                  <option className="discover-option" value="10751">
+                    Family
+                  </option>
+                  <option className="discover-option" value="14">
+                    Fantasy
+                  </option>
+                  <option className="discover-option" value="36">
+                    Horror
+                  </option>
+                  <option className="discover-option" value="10749">
+                    Music
+                  </option>
+                  <option className="discover-option" value="9648">
+                    Mystery
+                  </option>
+                  <option className="discover-option" value="10749">
+                    Romance
+                  </option>
+                  <option className="discover-option" value="878">
+                    Science Fiction
+                  </option>
+                  <option className="discover-option" value="10770">
+                    TV Movie
+                  </option>
+                  <option className="discover-option" value="53">
+                    Thriller
+                  </option>
+                  <option className="discover-option" value="10752">
+                    War
+                  </option>
+                  <option className="discover-option" value="37">
+                    Western
+                  </option>
+                </select>
+              </span>
+
+              <span className="discover-span">
+                <label htmlFor="vote" className="discover-label">
+                  Average Vote
+                </label>
+                <input
+                  id="vote"
+                  className="discover-input"
+                  onChange={e => this.setState({ voteAverage: e.target.value })}
+                  type="number"
+                  name="vote_average"
+                  placeholder="Average Rating"
+                />
+              </span>
+
+              <span className="discover-span">
+                <label htmlFor="keywords" className="discover-label">
+                  Keywords
+                </label>
+                <input
+                  id="keywords"
+                  className="discover-input"
+                  onChange={e =>
+                    this.setState({ withKeywords: e.target.value })
+                  }
+                  type="text"
+                  name="with_keywords"
+                  placeholder="Keywords"
+                />
+              </span>
             </div>
             <button
               className="discover-button"

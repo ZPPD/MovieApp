@@ -65,6 +65,14 @@
 .discover-button:hover {
   background-color: #ee7d6b;
 }
+.discover-label {
+  display: block;
+  color: #eee;
+}
+
+.discover-span {
+  display: inline-block;
+}
 
 .discover-output {
   display: grid;
@@ -101,6 +109,9 @@
   }
   .discover-input {
     max-width: 50%;
+  }
+  .discover-label {
+    display: none;
   }
 }
 
