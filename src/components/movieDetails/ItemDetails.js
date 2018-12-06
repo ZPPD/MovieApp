@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import ScrollReveal from "scrollreveal";
 
 import fetchMovieDetails from "../../actions/movieActions/getMovieDetails";
 import fetchMovieCredits from "../../actions/movieActions/getMovieCredits";
@@ -17,6 +18,20 @@ import "./ItemDetails.css";
 class ItemDetails extends Component {
   componentDidMount() {
     this.fetchData(this.props.match.params.id);
+    const config = {
+      origin: "top",
+      duration: 2000,
+      delay: 100,
+      distance: "100px",
+      scale: 0.85,
+      easing: "ease-in"
+    };
+    ScrollReveal().reveal(this.refs.scroll1, config);
+    ScrollReveal().reveal(this.refs.scroll2, config);
+    ScrollReveal().reveal(this.refs.scroll3, config);
+    ScrollReveal().reveal(this.refs.scroll4, config);
+    ScrollReveal().reveal(this.refs.scroll5, config);
+    ScrollReveal().reveal(this.refs.scroll6, config);
   }
 
   fetchData(id, type = this.props.match.params.type) {
@@ -99,7 +114,7 @@ class ItemDetails extends Component {
             </div>
           </header>
           <section className="summary-detail main-detail">
-            <h2>Summary</h2>
+            <h2 ref="scroll1">Summary</h2>
             <p>{this.props.movieDetails.overview}</p>
           </section>
         </React.Fragment>
@@ -130,7 +145,7 @@ class ItemDetails extends Component {
             </section>
           </header>
           <section className="main-person main-detail">
-            <h2>Biography</h2>
+            <h2 ref="scroll2">Biography</h2>
             <div className="bio">
               <h3 className="biography-person">
                 {this.props.personDetails.biography}
@@ -146,7 +161,9 @@ class ItemDetails extends Component {
     if (type === "movie" || type === "tv") {
       return (
         <section className="cast">
-          <h2 className="filmCast">Cast</h2>
+          <h2 className="filmCast" ref="scroll3">
+            Cast
+          </h2>
           <div className="actors">
             {this.props.movieCredits.map(cast => (
               <Link key={cast.id} to={`/details/person/${cast.id}`}>
@@ -171,7 +188,9 @@ class ItemDetails extends Component {
     if (type === "person") {
       return (
         <section className="cast">
-          <h2 className="filmPhotos">Photos</h2>
+          <h2 className="filmPhotos" ref="scroll4">
+            Photos
+          </h2>
           <div className="photoSection">
             {this.props.personPhotos.map((photo, i) => (
               <div key={i} className="photo-card">
@@ -192,7 +211,9 @@ class ItemDetails extends Component {
     if (type === "movie" || type === "tv") {
       return (
         <section className="cast">
-          <h2 className="filmTrailer">Trailer</h2>
+          <h2 className="filmTrailer" ref="scroll5">
+            Trailer
+          </h2>
           <div className="trailers">
             {this.props.movieTrailers.map((trailer, j) => (
               <div key={j} className="trailer-grid">
@@ -213,7 +234,9 @@ class ItemDetails extends Component {
     if (type === "person") {
       return (
         <section className="cast">
-          <h2 className="filmCredits">Filmography</h2>
+          <h2 className="filmCredits" ref="scroll6">
+            Filmography
+          </h2>
           {this.props.personCredits.map(credit => (
             <div key={credit.id} className="card-credit">
               <Link

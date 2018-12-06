@@ -1,14 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ScrollReveal from "scrollreveal";
+
 import Tmbdlogo from "./img/tmdblogo.png";
 import "./Footer.css";
 
 class Footer extends React.Component {
+  componentDidMount() {
+    const config = {
+      origin: "left",
+      duration: 5000,
+      delay: 50,
+      distance: "100px",
+      scale: 0.85,
+      easing: "ease"
+    };
+    ScrollReveal().reveal(this.refs.scroll1, config);
+  }
+
   render() {
     return (
       <footer className="footer">
         <div className="footer-grid">
-          <section className="footer-left">
+          <section className="footer-left" ref="scroll1">
             <h2 className="footer-brand">Film Info</h2>
             <Link to="/" className="footer-icon">
               Home

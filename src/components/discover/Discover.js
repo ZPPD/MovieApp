@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import ScrollReveal from "scrollreveal";
 
 import getDiscover from "../../actions/discover";
 
 import HomeHeader from "../homeHeader/HomeHeader";
+import Footer from "../footer/Footer";
 
 import "./Discover.css";
 
@@ -20,6 +22,15 @@ class Discover extends Component {
 
   componentDidMount() {
     this.handleDiscover();
+    const config = {
+      origin: "top",
+      duration: 2000,
+      delay: 100,
+      distance: "100px",
+      scale: 0.85,
+      easing: "ease"
+    };
+    ScrollReveal().reveal(this.refs.scroll, config);
   }
 
   //handle discover
@@ -60,7 +71,9 @@ class Discover extends Component {
       <React.Fragment>
         <HomeHeader />
         <header className="discover-header">
-          <h1 className="discover-title-header">Discover New Movies</h1>
+          <h1 className="discover-title-header" ref="scroll">
+            Discover New Movies
+          </h1>
           <div className="overlay" />
           <form className="discover-form" method="GET" action="/">
             <div className="form-container">
@@ -269,6 +282,7 @@ class Discover extends Component {
             </button>
           </section>
         </main>
+        <Footer />
       </React.Fragment>
     );
   }

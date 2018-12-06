@@ -97,6 +97,9 @@
   .discover-form {
     margin: -10px auto auto auto;
   }
+  .discover-label {
+    display: none;
+  }
 }
 
 @media (max-width: 800px) {
@@ -109,9 +112,6 @@
   }
   .discover-input {
     max-width: 50%;
-  }
-  .discover-label {
-    display: none;
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import ScrollReveal from "scrollreveal";
 
 import searchMovies from "../../actions/searchMovies";
 import HomeHeader from "../homeHeader/HomeHeader";
@@ -16,6 +17,15 @@ class SearchResults extends Component {
 
   componentDidMount() {
     this.searchResultsMovies();
+    const config = {
+      origin: "top",
+      duration: 2000,
+      delay: 100,
+      distance: "100px",
+      scale: 0.85,
+      easing: "ease"
+    };
+    ScrollReveal().reveal(this.refs.scroll, config);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -63,7 +73,7 @@ class SearchResults extends Component {
         <main className="main">
           {/* {console.log(this.props.searchResults)}{" "} */}
           <section className="searchResults">
-            <h1 className="searchHeader">
+            <h1 className="searchHeader" ref="scroll">
               Search Results for {this.props.match.params.id}
             </h1>
             <hr className="search-divider" />

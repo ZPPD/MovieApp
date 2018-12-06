@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import ScrollReveal from "scrollreveal";
 
 import setItemType from "../../actions/setItemType";
 
@@ -11,12 +12,26 @@ class HomeMoviesDisplay extends Component {
     page: 1
   };
 
+  componentDidMount() {
+    const config = {
+      origin: "left",
+      duration: 2000,
+      delay: 10,
+      distance: "50px",
+      scale: 1,
+      ease: "ease"
+    };
+    ScrollReveal().reveal(this.refs.scroll, config);
+  }
+
   render() {
     // console.log(this.props.items);
     // console.log("in movies display", this.props.itemType);
     return (
       <section className="home-results">
-        <h2 className="nowPlaying">{this.props.header}</h2>
+        <h2 className="nowPlaying" ref="scroll">
+          {this.props.header}
+        </h2>
         <div className="playing">
           {this.props.items.map(movie => (
             <div key={movie.id} className="playing-grid">

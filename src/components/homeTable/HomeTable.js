@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import ScrollReveal from "scrollreveal";
 
 import setItemType from "../../actions/setItemType";
 
@@ -8,6 +9,19 @@ import fetchMoviesFromButton from "../../actions/movieActions/getMoviesFromButto
 import "./HomeTable.css";
 
 class HomeTable extends Component {
+  componentDidMount() {
+    const config = {
+      origin: "top",
+      duration: 2000,
+      delay: 20,
+      distance: "100px",
+      scale: 0.85,
+      easing: "ease"
+    };
+    ScrollReveal().reveal(this.refs.scroll1, config);
+    ScrollReveal().reveal(this.refs.scroll2, config);
+  }
+
   onShowClick = e => {
     e.preventDefault();
     this.props.onButtonChange();
@@ -45,8 +59,8 @@ class HomeTable extends Component {
     return (
       <section className="table">
         <div className="grid-table-top">
-          <h2>Movies</h2>
-          <h2>TV</h2>
+          <h2 ref="scroll1">Movies</h2>
+          <h2 ref="scroll2">TV</h2>
         </div>
         <div className="grid-table-bottom">
           <div className="table-flex">
