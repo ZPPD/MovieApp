@@ -11,12 +11,6 @@ class HomeMoviesDisplay extends Component {
     page: 1
   };
 
-  // get data-get
-  // getHeading = data => {
-  //   const transform = data.replace(/_/g, " ");
-  //   console.log(transform);
-  //   return transform;
-  // };
   render() {
     // console.log(this.props.items);
     // console.log("in movies display", this.props.itemType);
@@ -59,5 +53,3 @@ export default connect(
   mapStateToProps,
   { setItemType }
 )(HomeMoviesDisplay);
-
-// export default HomeMoviesDisplay;

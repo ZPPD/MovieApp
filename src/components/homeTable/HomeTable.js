@@ -17,12 +17,14 @@ class HomeTable extends Component {
     this.props.setItemType(`${setType}`);
     // console.log(this.props.itemType);
 
-    // const heading = this.props.getData;
-    // this.props.getHeading(heading);
     const type = e.target.dataset.type;
     //console.log(type);
     const getData = e.target.dataset.get;
     //console.log(getData);
+
+    const transform = getData.replace(/_/g, " ");
+    this.props.getHeading(transform);
+
     const apiKey = process.env.REACT_APP_API_KEY;
     this.props.fetchMoviesFromButton(
       `https://api.themoviedb.org/3/${type}/${getData}?api_key=${apiKey}&language=en-US&page=1`
@@ -39,12 +41,7 @@ class HomeTable extends Component {
         e.target.classList.add("active");
       })
     );
-    // // // get data-get
-    // getHeading = data => {
-    //   const transform = data.replace(/_/g, " ").toUpperCase();
-    //   console.log(transform);
-    //   return transform;
-    // };
+
     return (
       <section className="table">
         <div className="grid-table-top">

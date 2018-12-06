@@ -5,7 +5,6 @@ import setItemType from "../../actions/setItemType";
 
 import fetchMoviesTrending from "../../actions/movieActions/getMovieTrending";
 import fetchMoviesFromButton from "../../actions/movieActions/getMoviesFromButton";
-// import fetchMoviesPopular from "../../actions/movieActions/getMoviesPopular";
 
 import HomeHeader from "../homeHeader/HomeHeader";
 import HomeTable from "../homeTable/HomeTable";
@@ -15,7 +14,7 @@ import Footer from "../footer/Footer";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { showButtonMovies: false };
+    this.state = { showButtonMovies: false, getHeadingData: "" };
   }
 
   componentDidMount() {
@@ -43,12 +42,18 @@ class Home extends Component {
                 showButtonMovies: true
               })
             }
+            getHeading={data =>
+              this.setState({
+                getHeadingData: data
+              })
+            }
           />
           <HomeMoviesDisplay
-            // heading={this.props.getHeading()}
             type={this.props.itemType}
             header={
-              this.state.showButtonMovies ? "something" : "Trending Movies"
+              this.state.showButtonMovies
+                ? this.state.getHeadingData
+                : "Trending Movies"
             }
             items={
               this.state.showButtonMovies
@@ -67,7 +72,6 @@ const mapStateToProps = state => ({
   moviesTrending: state.trending.output,
   moviesFromButton: state.nowPlaying.output,
   itemType: state.setItemType.itemType
-  // moviesPopular: state.popularMovies.output
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -75,7 +79,6 @@ const mapDispatchToProps = dispatch => ({
 
   fetchMoviesTrending: url => dispatch(fetchMoviesTrending(url)),
   fetchMoviesFromButton: url => dispatch(fetchMoviesFromButton(url))
-  // fetchMoviesPopular: url => dispatch(fetchMoviesPopular(url))
 });
 
 export default connect(
