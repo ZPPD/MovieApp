@@ -94,6 +94,9 @@
   .movieDiv {
     grid-template-columns: repeat(4, 1fr);
   }
+  .searchMovie-img {
+    width: 180px;
+  }
 }
 @media (max-width: 750px) {
   .movieDiv {
