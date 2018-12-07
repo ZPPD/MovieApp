@@ -119,5 +119,9 @@
 @media (max-width: 580px) {
   .discover-output {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 20rem;
+  }
+  .discover-span {
+    display: block;
   }
 }
