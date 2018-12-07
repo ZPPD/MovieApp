@@ -17,11 +17,12 @@ class Discover extends Component {
     withGenres: null,
     withKeywords: null,
     year: 2018,
-    page: 1
+    page: 1,
+    type: "movie"
   };
 
   componentDidMount() {
-    this.handleDiscover();
+    this.handleDiscoverMovie();
     const config = {
       origin: "top",
       duration: 2000,
@@ -33,8 +34,8 @@ class Discover extends Component {
     ScrollReveal().reveal(this.refs.scroll, config);
   }
 
-  //handle discover
-  handleDiscover = () => {
+  //handle discover Movie
+  handleDiscoverMovie = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     this.props.getDiscover(
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=${
@@ -51,7 +52,30 @@ class Discover extends Component {
         this.state.withKeywords
           ? "with_keywords=" + this.state.withKeywords + "&"
           : ""
-      }${this.state.year}`
+      }year=${this.state.year}`
+    );
+  };
+
+  //handle discover Tv
+  handleDiscoverTv = () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    this.setState({ type: "tv" });
+    this.props.getDiscover(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=${
+        this.state.sortBy
+      }&include_adult=false&include_video=false&page=${this.state.page}&${
+        this.state.voteAverage
+          ? "vote_average.gte=" + this.state.voteAverage + "&"
+          : ""
+      }${
+        this.state.withGenres
+          ? "with_genres=" + this.state.withGenres + "&"
+          : ""
+      }${
+        this.state.withKeywords
+          ? "with_keywords=" + this.state.withKeywords + "&"
+          : ""
+      }first_air_year=${this.state.year}&include_null_first_air_dates=false`
     );
   };
 
@@ -64,7 +88,10 @@ class Discover extends Component {
     } else if (pageTransition === "-") {
       this.setState({ page: this.state.page - 1 });
     }
-    this.handleDiscover();
+    if (this.state.type === "movie") {
+      this.handleDiscoverMovie();
+    }
+    this.handleDiscoverTv();
   };
   render() {
     return (
@@ -72,7 +99,7 @@ class Discover extends Component {
         <HomeHeader />
         <header className="discover-header">
           <h1 className="discover-title-header" ref="scroll">
-            Discover New Movies
+            Discover New Movies and TV Shows
           </h1>
           <div className="overlay" />
           <form className="discover-form" method="GET" action="/">
@@ -229,10 +256,19 @@ class Discover extends Component {
               className="discover-button"
               onClick={e => {
                 e.preventDefault();
-                this.handleDiscover();
+                this.handleDiscoverMovie();
               }}
             >
-              Search
+              Search Movies
+            </button>
+            <button
+              className="discover-button"
+              onClick={e => {
+                e.preventDefault();
+                this.handleDiscoverTv();
+              }}
+            >
+              Search TV
             </button>
           </form>
         </header>
@@ -250,12 +286,15 @@ class Discover extends Component {
                       src={`https://image.tmdb.org/t/p/original/${
                         item.poster_path
                       }`}
-                      alt={item.media_type === "tv" ? item.name : item.title}
+                      alt={item.name ? item.name : item.title}
                     />
                     <h2 className="discover-title">
-                      {item.media_type === "tv" ? item.name : item.title}
+                      {item.name ? item.name : item.title}
                     </h2>
-                    <p>{item.release_date}</p>
+                    <p>
+                      {item.name ? "TV" : "Movie"}{" "}
+                      {item.name ? item.first_air_date.gte : item.release_date}
+                    </p>
                     <p>
                       <i className="fas fa-star discover-vote" />{" "}
                       {`${item.vote_average}`}
