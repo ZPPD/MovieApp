@@ -2,7 +2,9 @@
   "name": "filmapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ZPPD.github.io/MovieApp",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-redux": "^5.1.1",
@@ -13,6 +15,7 @@
     "scrollreveal": "^4.0.5"
   },
   "scripts": {
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

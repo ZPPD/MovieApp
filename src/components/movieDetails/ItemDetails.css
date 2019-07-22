@@ -213,8 +213,8 @@
 @media (max-width: 750px) {
   .main-detail,
   .main-person {
-    margin: 50px 20px;
-    padding: 1rem;
+    margin: 30px 20px;
+    padding: 0;
     max-width: 100%;
   }
   .details-title {
@@ -247,14 +247,19 @@
   .credit-overview {
     line-height: 1.5;
     font-size: 1.1rem;
+    max-height: 200px;
+    overflow: auto;
   }
   .cast {
     max-width: 100%;
-    padding: 0 2rem;
+    padding: 0;
   }
 }
 
 @media (max-width: 580px) {
+  .details-header {
+    height: 70vh;
+  }
   .credit-flex {
     display: block;
   }

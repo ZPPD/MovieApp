@@ -32,6 +32,6 @@ a {
 }
 @media (max-width: 750px) {
   main {
-    margin: 100px 20px;
+    margin: 50px 20px;
   }
 }
