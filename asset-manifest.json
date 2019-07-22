@@ -1,15 +1,15 @@
 {
-  "main.css": "/MovieApp/static/css/main.e78a2b39.chunk.css",
-  "main.js": "/MovieApp/static/js/main.23887734.chunk.js",
-  "main.js.map": "/MovieApp/static/js/main.23887734.chunk.js.map",
+  "main.css": "/MovieApp/static/css/main.6cd50d8c.chunk.css",
+  "main.js": "/MovieApp/static/js/main.52fb0aeb.chunk.js",
+  "main.js.map": "/MovieApp/static/js/main.52fb0aeb.chunk.js.map",
   "static/js/1.eb00bc65.chunk.js": "/MovieApp/static/js/1.eb00bc65.chunk.js",
   "static/js/1.eb00bc65.chunk.js.map": "/MovieApp/static/js/1.eb00bc65.chunk.js.map",
   "runtime~main.js": "/MovieApp/static/js/runtime~main.5dfb1f54.js",
   "runtime~main.js.map": "/MovieApp/static/js/runtime~main.5dfb1f54.js.map",
-  "static/css/main.e78a2b39.chunk.css.map": "/MovieApp/static/css/main.e78a2b39.chunk.css.map",
+  "static/css/main.6cd50d8c.chunk.css.map": "/MovieApp/static/css/main.6cd50d8c.chunk.css.map",
   "static/media/ItemDetails.css": "/MovieApp/static/media/theatre1.aa7078e1.jpg",
   "static/media/Discover.css": "/MovieApp/static/media/popcorn.bdcb4cd8.jpg",
   "index.html": "/MovieApp/index.html",
-  "precache-manifest.971d9949e37760902b696c4998c998f4.js": "/MovieApp/precache-manifest.971d9949e37760902b696c4998c998f4.js",
+  "precache-manifest.bf0ea9f07c35d227505cb9e0a93051c6.js": "/MovieApp/precache-manifest.bf0ea9f07c35d227505cb9e0a93051c6.js",
   "service-worker.js": "/MovieApp/service-worker.js"
 }
