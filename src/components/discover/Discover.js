@@ -16,7 +16,7 @@ class Discover extends Component {
     voteAverage: null,
     withGenres: null,
     withKeywords: null,
-    year: 2018,
+    year: 2019,
     page: 1,
     type: "movie"
   };
@@ -37,6 +37,7 @@ class Discover extends Component {
   //handle discover Movie
   handleDiscoverMovie = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
+    this.setState({ type: "movie" });
     this.props.getDiscover(
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=${
         this.state.sortBy
@@ -81,18 +82,21 @@ class Discover extends Component {
 
   // handle pagination
   handlePagination = pageTransition => {
-    if (this.state.page === 1 && pageTransition === "-") {
+    if (pageTransition === "-" && this.state.page === 1) {
       this.setState({ page: 1 });
     } else if (pageTransition === "+") {
       this.setState({ page: this.state.page + 1 });
     } else if (pageTransition === "-") {
       this.setState({ page: this.state.page - 1 });
     }
+
     if (this.state.type === "movie") {
       this.handleDiscoverMovie();
+    } else if (this.state.type === "tv") {
+      this.handleDiscoverTv();
     }
-    this.handleDiscoverTv();
   };
+
   render() {
     return (
       <React.Fragment>
@@ -114,7 +118,7 @@ class Discover extends Component {
                   onChange={e => this.setState({ year: e.target.value })}
                   type="number"
                   name="year"
-                  placeholder="2018"
+                  placeholder="2019"
                 />
               </span>
 

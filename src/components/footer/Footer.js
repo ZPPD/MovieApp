@@ -71,7 +71,7 @@ class Footer extends React.Component {
               ZPPD
             </a>
           </p>
-          <p>Copyright &copy;2018</p>
+          <p>Copyright &copy;{new Date().getFullYear().toString()}</p>
         </div>
       </footer>
     );
