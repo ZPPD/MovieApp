@@ -1,7 +1,8 @@
 import { SEARCH_MOVIES } from "../actions/types";
 
 const initialState = {
-  output: []
+  output: [],
+  total: 0
 };
 
 const searchMovies = (state = initialState, action) => {
@@ -9,7 +10,8 @@ const searchMovies = (state = initialState, action) => {
     case SEARCH_MOVIES:
       return {
         ...state,
-        output: action.payload
+        output: action.payload.results,
+        total: action.payload.total_pages
       };
     default:
       return state;

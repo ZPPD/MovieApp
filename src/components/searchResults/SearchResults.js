@@ -50,7 +50,7 @@ class SearchResults extends Component {
 
   // handle pagination
   handlePagination = pageTransition => {
-    if (this.state.page === 1 && pageTransition === "-") {
+    if (pageTransition === "-" && this.state.page === 1) {
       this.setState({ page: 1 });
     } else if (pageTransition === "+") {
       this.setState({ page: this.state.page + 1 });
@@ -58,12 +58,13 @@ class SearchResults extends Component {
       this.setState({ page: this.state.page - 1 });
     }
     // call the fetch function
-    const apiKey = process.env.REACT_APP_API_KEY;
-    this.props.searchMovies(
-      `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${
-        this.props.match.params.id
-      }&page=${this.state.page}&include_adult=false`
-    );
+    // const apiKey = process.env.REACT_APP_API_KEY;
+    // this.props.searchMovies(
+    //   `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${
+    //     this.props.match.params.id
+    //   }&page=${this.state.page}&include_adult=false`
+    // );
+    this.searchResultsMovies();
   };
 
   render() {
@@ -106,20 +107,35 @@ class SearchResults extends Component {
               }
             </section>
           </section>
-          <section className="pagination">
-            <button
-              className="prev-page page"
-              onClick={() => this.handlePagination("-")}
-            >
-              <i className="fas fa-arrow-circle-left" /> Previous
-            </button>
-            <button
-              className="next-page page"
-              onClick={() => this.handlePagination("+")}
-            >
-              Next <i className="fas fa-arrow-circle-right" />
-            </button>
-          </section>
+          {this.props.totalPages > 1 ? (
+            <section className="pagination">
+              <button
+                className="prev-page page"
+                onClick={() => this.handlePagination("-")}
+              >
+                <i className="fas fa-arrow-circle-left" /> Previous
+              </button>
+              <button
+                className="next-page page"
+                onClick={() => this.handlePagination("+")}
+              >
+                Next <i className="fas fa-arrow-circle-right" />
+              </button>
+            </section>
+          ) : (
+            <div className="container">
+              <h2
+                style={{
+                  color: "#fff",
+                  fontWeight: "500",
+                  textAlign: "center"
+                }}
+              >
+                There are no results containing your search term. Please try
+                again.
+              </h2>
+            </div>
+          )}
         </main>
         <Footer />
       </React.Fragment>
@@ -127,7 +143,8 @@ class SearchResults extends Component {
   }
 }
 const mapStateToProps = state => ({
-  searchResults: state.searchMovies.output
+  searchResults: state.searchMovies.output,
+  totalPages: state.searchMovies.total
 });
 
 const mapDispatchToProps = dispatch => ({

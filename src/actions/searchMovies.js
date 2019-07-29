@@ -9,7 +9,7 @@ const searchMovies = url => {
   return dispatch => {
     fetch(url)
       .then(res => res.json())
-      .then(data => dispatch(saveMovies(data.results)))
+      .then(data => dispatch(saveMovies(data)))
       .catch(error => console.log(error));
   };
 };
