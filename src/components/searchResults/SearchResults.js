@@ -38,6 +38,7 @@ class SearchResults extends Component {
       );
     }
   }
+  // search movies init func
   searchResultsMovies() {
     const apiKey = process.env.REACT_APP_API_KEY;
     console.log(this.props.match.params.id);
@@ -48,23 +49,27 @@ class SearchResults extends Component {
     );
   }
 
+  // updating the page state, calling this func in pagination
+  searchResultsPages = pageNumber => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    console.log(this.props.match.params.id);
+    this.props.searchMovies(
+      `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${
+        this.props.match.params.id
+      }&page=${pageNumber}&include_adult=false`
+    );
+    this.setState({ page: pageNumber });
+  };
+
   // handle pagination
   handlePagination = pageTransition => {
     if (pageTransition === "-" && this.state.page === 1) {
       this.setState({ page: 1 });
     } else if (pageTransition === "+") {
-      this.setState({ page: this.state.page + 1 });
+      this.searchResultsPages(this.state.page + 1);
     } else if (pageTransition === "-") {
-      this.setState({ page: this.state.page - 1 });
+      this.searchResultsPages(this.state.page - 1);
     }
-    // call the fetch function
-    // const apiKey = process.env.REACT_APP_API_KEY;
-    // this.props.searchMovies(
-    //   `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${
-    //     this.props.match.params.id
-    //   }&page=${this.state.page}&include_adult=false`
-    // );
-    this.searchResultsMovies();
   };
 
   render() {

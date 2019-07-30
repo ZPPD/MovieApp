@@ -22,7 +22,9 @@ class Discover extends Component {
   };
 
   componentDidMount() {
-    this.handleDiscoverMovie();
+    this.handleDiscoverMovieInit();
+
+    // this.handleDiscoverMovie();
     const config = {
       origin: "top",
       duration: 2000,
@@ -34,8 +36,8 @@ class Discover extends Component {
     ScrollReveal().reveal(this.refs.scroll, config);
   }
 
-  //handle discover Movie
-  handleDiscoverMovie = () => {
+  // Initial Movie discover func
+  handleDiscoverMovieInit = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     this.setState({ type: "movie" });
     this.props.getDiscover(
@@ -56,9 +58,8 @@ class Discover extends Component {
       }year=${this.state.year}`
     );
   };
-
-  //handle discover Tv
-  handleDiscoverTv = () => {
+  // Initial Tv discover func
+  handleDiscoverTvInit = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     this.setState({ type: "tv" });
     this.props.getDiscover(
@@ -80,20 +81,85 @@ class Discover extends Component {
     );
   };
 
+  //handle discover Movie
+  handleDiscoverMovie = pageNumber => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    this.setState({ type: "movie" });
+    this.props.getDiscover(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=${
+        this.state.sortBy
+      }&include_adult=false&include_video=false&page=${pageNumber}&${
+        this.state.voteAverage
+          ? "vote_average.gte=" + this.state.voteAverage + "&"
+          : ""
+      }${
+        this.state.withGenres
+          ? "with_genres=" + this.state.withGenres + "&"
+          : ""
+      }${
+        this.state.withKeywords
+          ? "with_keywords=" + this.state.withKeywords + "&"
+          : ""
+      }year=${this.state.year}`
+    );
+    this.setState({ page: pageNumber });
+  };
+
+  //handle discover Tv
+  handleDiscoverTv = pageNumber => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    this.setState({ type: "tv" });
+    this.props.getDiscover(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=${
+        this.state.sortBy
+      }&include_adult=false&include_video=false&page=${pageNumber}&${
+        this.state.voteAverage
+          ? "vote_average.gte=" + this.state.voteAverage + "&"
+          : ""
+      }${
+        this.state.withGenres
+          ? "with_genres=" + this.state.withGenres + "&"
+          : ""
+      }${
+        this.state.withKeywords
+          ? "with_keywords=" + this.state.withKeywords + "&"
+          : ""
+      }first_air_year=${this.state.year}&include_null_first_air_dates=false`
+    );
+    this.setState({ page: pageNumber });
+  };
+
   // handle pagination
   handlePagination = pageTransition => {
+    // if (pageTransition === "-" && this.state.page === 1) {
+    //   this.setState({ page: 1 });
+    // } else if (pageTransition === "+") {
+    //   this.setState({ page: this.state.page + 1 });
+    // } else if (pageTransition === "-") {
+    //   this.setState({ page: this.state.page - 1 });
+    // }
+
+    // if (this.state.type === "movie") {
+    //   this.handleDiscoverMovie();
+    // } else if (this.state.type === "tv") {
+    //   this.handleDiscoverTv();
+    // }
     if (pageTransition === "-" && this.state.page === 1) {
       this.setState({ page: 1 });
     } else if (pageTransition === "+") {
-      this.setState({ page: this.state.page + 1 });
+      // this.setState({ page: this.state.page + 1 });
+      if (this.state.type === "movie") {
+        this.handleDiscoverMovie(this.state.page + 1);
+      } else if (this.state.type === "tv") {
+        this.handleDiscoverTv(this.state.page + 1);
+      }
     } else if (pageTransition === "-") {
-      this.setState({ page: this.state.page - 1 });
-    }
-
-    if (this.state.type === "movie") {
-      this.handleDiscoverMovie();
-    } else if (this.state.type === "tv") {
-      this.handleDiscoverTv();
+      // this.setState({ page: this.state.page - 1 });
+      if (this.state.type === "movie") {
+        this.handleDiscoverMovie(this.state.page - 1);
+      } else if (this.state.type === "tv") {
+        this.handleDiscoverTv(this.state.page - 1);
+      }
     }
   };
 
@@ -260,7 +326,7 @@ class Discover extends Component {
               className="discover-button"
               onClick={e => {
                 e.preventDefault();
-                this.handleDiscoverMovie();
+                this.handleDiscoverMovieInit();
               }}
             >
               Search Movies
@@ -269,7 +335,7 @@ class Discover extends Component {
               className="discover-button"
               onClick={e => {
                 e.preventDefault();
-                this.handleDiscoverTv();
+                this.handleDiscoverTvInit();
               }}
             >
               Search TV
